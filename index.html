@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aaron Reyes | The Ambitious Armadillo</title>
+  <meta name="description" content="Personal home page of Aaron Reyes, computer science student at UNC Charlotte.">
+  <style>
+    :root {
+      --bg: #fbf5ec;
+      --surface: #ffffff;
+      --ink: #2a1f16;
+      --muted: #5c4a3a;
+      --accent: #8a4512;
+      --accent-soft: #f3e2cc;
+      --shell: #34251a;
+      --on-shell: #fbf5ec;
+      --line: #e6d6c0;
+      --radius: 14px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1c1510;
+        --surface: #2a2019;
+        --ink: #f3e9da;
+        --muted: #cdbba5;
+        --accent: #f0b27a;
+        --accent-soft: #3a2c20;
+        --shell: #120d09;
+        --on-shell: #f3e9da;
+        --line: #43342a;
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.65;
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    h1, h2, h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.2;
+    }
+
+    a { color: var(--accent); }
+    a:hover { text-decoration-thickness: 3px; }
+    a:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 0.5rem;
+      background: var(--ink);
+      color: var(--bg);
+      padding: 0.5rem 1rem;
+      z-index: 10;
+    }
+    .skip-link:focus { left: 0.5rem; }
+
+    /* Header and hero */
+    header {
+      background: var(--shell);
+      color: var(--on-shell);
+      padding: 3rem 1.5rem 3.5rem;
+    }
+    .hero {
+      max-width: 60rem;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .hero-text { flex: 1 1 22rem; }
+    .eyebrow {
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-size: 0.85rem;
+      color: #f0b27a;
+    }
+    header h1 {
+      margin: 0.25rem 0 0.5rem;
+      font-size: 2.75rem;
+    }
+    .tagline {
+      margin: 0;
+      font-size: 1.2rem;
+      max-width: 32rem;
+    }
+    .mascot {
+      flex: 0 1 15rem;
+      width: 15rem;
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Navigation */
+    nav {
+      background: var(--accent-soft);
+      border-bottom: 1px solid var(--line);
+    }
+    nav ul {
+      list-style: none;
+      margin: 0 auto;
+      padding: 0.75rem 1rem;
+      max-width: 60rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem 1.75rem;
+    }
+    nav a {
+      font-weight: 600;
+      text-decoration: none;
+    }
+    nav a:hover { text-decoration: underline; }
+
+    /* Main content */
+    main {
+      max-width: 60rem;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 1rem;
+    }
+    section { margin-bottom: 3rem; }
+    h2 {
+      color: var(--accent);
+      font-size: 1.75rem;
+      margin: 0 0 1rem;
+    }
+
+    .facts {
+      list-style: none;
+      padding: 0;
+      margin: 1.25rem 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+    .facts li {
+      background: var(--accent-soft);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.3rem 0.9rem;
+      font-size: 0.95rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+      gap: 1.25rem;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-top: 5px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.4rem;
+    }
+    .card h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.25rem;
+    }
+    .card p { margin: 0; color: var(--muted); }
+
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-left: 6px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+    }
+    .callout p { margin: 0; }
+
+    .button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.65rem 1.3rem;
+      border-radius: 999px;
+      background: var(--accent);
+      color: var(--bg);
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .button:hover { text-decoration: underline; }
+
+    /* Footer */
+    footer {
+      background: var(--shell);
+      color: var(--on-shell);
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.95rem;
+    }
+    footer p { margin: 0.25rem 0; }
+    footer a { color: #f0b27a; }
+
+    @media (max-width: 34rem) {
+      header h1 { font-size: 2.1rem; }
+      .hero { text-align: center; }
+      .tagline { margin: 0 auto; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <div class="hero">
+      <div class="hero-text">
+        <p class="eyebrow">Personal home page</p>
+        <h1>Aaron Reyes</h1>
+        <p class="tagline">The Ambitious Armadillo: computer science student, entrepreneur, and future AI salesperson who keeps rolling forward.</p>
+      </div>
+
+      <svg class="mascot" viewBox="0 0 240 160" role="img" aria-labelledby="mascot-title">
+        <title id="mascot-title">Cartoon armadillo, Aaron's personal mascot</title>
+        <path d="M200 112 Q228 120 236 104" fill="none" stroke="#c98a55" stroke-width="7" stroke-linecap="round"/>
+        <rect x="70" y="112" width="16" height="30" rx="7" fill="#a8693a"/>
+        <rect x="160" y="112" width="16" height="30" rx="7" fill="#a8693a"/>
+        <path d="M40 118 Q40 40 122 36 Q204 40 206 118 Z" fill="#c98a55"/>
+        <path d="M78 116 Q76 56 92 44" fill="none" stroke="#8a4f25" stroke-width="4"/>
+        <path d="M104 116 Q102 50 112 38" fill="none" stroke="#8a4f25" stroke-width="4"/>
+        <path d="M132 116 Q134 50 132 37" fill="none" stroke="#8a4f25" stroke-width="4"/>
+        <path d="M158 116 Q162 54 154 41" fill="none" stroke="#8a4f25" stroke-width="4"/>
+        <path d="M182 116 Q186 66 176 50" fill="none" stroke="#8a4f25" stroke-width="4"/>
+        <path d="M42 96 Q14 96 6 116 Q26 124 46 116 Z" fill="#e0a877"/>
+        <ellipse cx="50" cy="80" rx="8" ry="13" fill="#e0a877" transform="rotate(-20 50 80)"/>
+        <circle cx="30" cy="104" r="4" fill="#2a1f16"/>
+        <circle cx="8" cy="114" r="3" fill="#2a1f16"/>
+      </svg>
+    </div>
+  </header>
+
+  <nav aria-label="Page sections">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#interests">What I'm into</a></li>
+      <li><a href="#goals">Goals</a></li>
+      <li><a href="#course">Course work</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <section id="about" aria-labelledby="about-heading">
+      <h2 id="about-heading">About me</h2>
+      <p>Hi, I'm Aaron. I grew up in New York and I'm now a junior at UNC Charlotte, studying computer science with a focus on AI, robotics, and gaming. I like building things, whether that's code, a business, or a stronger version of myself in the gym.</p>
+      <p>Why an armadillo? They're tough, they're curious, and they keep moving forward no matter what's in the way. That's the energy I try to bring to everything.</p>
+      <ul class="facts" aria-label="Quick facts">
+        <li>B.S. Computer Science</li>
+        <li>Minor in Mathematics</li>
+        <li>AI, Robotics &amp; Gaming</li>
+        <li>Class of 2028</li>
+      </ul>
+    </section>
+
+    <section id="interests" aria-labelledby="interests-heading">
+      <h2 id="interests-heading">What I'm into</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Artificial intelligence</h3>
+          <p>I'm fascinated by how AI is changing the way people work, and I want a front-row seat to it.</p>
+        </article>
+        <article class="card">
+          <h3>Entrepreneurship</h3>
+          <p>I run Radiant Roots, my own supplement brand, and I hold an active real estate license.</p>
+        </article>
+        <article class="card">
+          <h3>Fitness</h3>
+          <p>Strength training keeps me disciplined and gives me a break from the screen.</p>
+        </article>
+        <article class="card">
+          <h3>Cars</h3>
+          <p>I'm a big fan of performance and luxury cars, from engineering details to design.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="goals" aria-labelledby="goals-heading">
+      <h2 id="goals-heading">Where I'm headed</h2>
+      <p>My goal is a career in AI sales, starting in a sales development role. It combines the two things I enjoy most: understanding technology deeply and connecting with people. Long term, I'd love to help bring AI tools to the businesses that need them.</p>
+    </section>
+
+    <section id="course" aria-labelledby="course-heading">
+      <h2 id="course-heading">Looking for my course work?</h2>
+      <div class="callout">
+        <p>Everything for my Front-End Web App Development class lives on a separate site with its own design.</p>
+        <a class="button" href="https://webpages.charlotte.edu/areyes24/itis3135/">Visit my ITIS 3135 course page</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Aaron Reyes &middot; <a href="https://github.com/Aaronarey">GitHub</a></p>
+    <p>
+      <a href="https://validator.w3.org/check?uri=referer">Validate HTML</a>
+      &middot;
+      <a href="https://jigsaw.w3.org/css-validator/check/referer">Validate CSS</a>
+    </p>
+  </footer>
+</body>
+</html>
