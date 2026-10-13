@@ -132,6 +132,36 @@ footer nav ul {
   margin-bottom: 0.75rem;
 }
 
+/* Secondary menu: pages and sites that do not share this site's design */
+.secondary-nav {
+  margin-top: 0.75rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid #8a5a3a;
+}
+
+.secondary-nav ul {
+  gap: 1.25rem;
+}
+
+.secondary-nav a,
+.secondary-nav a:link,
+.secondary-nav a:visited {
+  color: #f4f1ea;
+  font-weight: normal;
+  font-size: 0.85rem;
+}
+
+.secondary-nav a:hover,
+.secondary-nav a:focus {
+  color: #e8c07d;
+}
+
+/* Placeholder note on pages still being built */
+.coming-soon {
+  font-style: italic;
+  color: #6b4226;
+}
+
 /* Media queries */
 @media screen and (max-width: 600px) {
   nav ul {
