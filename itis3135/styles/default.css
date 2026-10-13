@@ -4,8 +4,14 @@
   box-sizing: border-box;
 }
 
+/* Darker tone outside the centered page so the edges look intentional */
+html {
+  background-color: #e3dccf;
+}
+
 body {
-  margin: 0;
+  max-width: 1200px;
+  margin: 0 auto;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: #f4f1ea;
   color: #2e2a24;
@@ -18,6 +24,13 @@ header {
   color: #f4f1ea;
   text-align: center;
   padding: 1.5rem 1rem 1rem;
+}
+
+/* Second font: headings use Trebuchet MS for contrast with the Verdana body text */
+h1,
+h2,
+h3 {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
 header h1 {
@@ -45,6 +58,7 @@ nav a:visited {
 
 nav a:hover,
 nav a:focus {
+  /* white on purpose: the brightest hover state against the dark brown header */
   color: #ffffff;
   text-decoration: underline;
 }
@@ -67,7 +81,7 @@ a {
 }
 
 a:visited {
-  color: #7a4420;
+  color: #a15c2c;
 }
 
 a:focus-visible {
@@ -124,6 +138,7 @@ footer a:visited {
 
 footer a:hover,
 footer a:focus {
+  /* white on purpose: the brightest hover state against the dark footer */
   color: #ffffff;
 }
 
