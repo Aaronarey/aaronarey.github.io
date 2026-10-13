@@ -33,6 +33,19 @@ h3 {
   font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
+header img {
+  display: block;
+  margin: 0 auto 0.5rem;
+}
+
+/* Display name on the introduction page */
+h6 {
+  font-size: 1.4rem;
+  text-align: center;
+  white-space: nowrap;
+  margin: 1rem 0;
+}
+
 header h1 {
   margin: 0 0 0.75rem;
   font-size: 1.4rem;
@@ -87,10 +100,6 @@ a:visited {
 a:focus-visible {
   outline: 3px solid #e8c07d;
   outline-offset: 2px;
-}
-
-.disclaimer {
-  font-style: italic;
 }
 
 /* Figures and quotes */
@@ -190,7 +199,20 @@ footer nav ul {
 }
 
 @media screen and (min-width: 900px) {
-  header h1 {
+  header img {
+  display: block;
+  margin: 0 auto 0.5rem;
+}
+
+/* Display name on the introduction page */
+h6 {
+  font-size: 1.4rem;
+  text-align: center;
+  white-space: nowrap;
+  margin: 1rem 0;
+}
+
+header h1 {
     font-size: 1.8rem;
   }
 }

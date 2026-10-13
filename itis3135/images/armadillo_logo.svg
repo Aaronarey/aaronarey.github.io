@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72">
+  <!-- Ambitious Armadillo logo: a banded shell over a small head, in the site palette -->
+  <circle cx="36" cy="36" r="34" fill="#e8c07d"/>
+  <path d="M12 44 Q16 18 40 18 Q58 18 60 40 Z" fill="#6b4226"/>
+  <path d="M22 41 Q24 24 30 20 M31 41 Q32 22 38 19 M40 41 Q42 22 48 21 M49 41 Q52 28 54 26" stroke="#e8c07d" stroke-width="2" fill="none"/>
+  <path d="M58 38 Q66 38 66 44 Q62 46 58 44 Z" fill="#6b4226"/>
+  <circle cx="62" cy="41" r="1.2" fill="#e8c07d"/>
+  <rect x="18" y="44" width="6" height="8" rx="2" fill="#6b4226"/>
+  <rect x="46" y="44" width="6" height="8" rx="2" fill="#6b4226"/>
+  <path d="M12 44 Q6 48 4 54" stroke="#6b4226" stroke-width="4" fill="none" stroke-linecap="round"/>
+</svg>
