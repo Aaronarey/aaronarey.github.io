@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="240" viewBox="0 0 760 240" role="img" aria-labelledby="crap-title">
+  <title id="crap-title">The four CRAP design principles</title>
+  <!-- Colors match the site palette in default.css -->
+  <rect width="760" height="240" fill="#f4f1ea"/>
+
+  <!-- Contrast: one big bold block next to small light ones -->
+  <g transform="translate(20 20)">
+    <rect width="165" height="200" rx="10" fill="#6b4226"/>
+    <rect x="25" y="40" width="115" height="40" rx="4" fill="#e8c07d"/>
+    <rect x="25" y="95" width="80" height="10" rx="3" fill="#a07a5a"/>
+    <rect x="25" y="113" width="60" height="10" rx="3" fill="#a07a5a"/>
+    <text x="82.5" y="175" text-anchor="middle" font-family="Verdana, sans-serif" font-size="18" font-weight="bold" fill="#f4f1ea">Contrast</text>
+  </g>
+
+  <!-- Repetition: the same shape repeated -->
+  <g transform="translate(205 20)">
+    <rect width="165" height="200" rx="10" fill="#6b4226"/>
+    <circle cx="45" cy="70" r="16" fill="#e8c07d"/>
+    <circle cx="82.5" cy="70" r="16" fill="#e8c07d"/>
+    <circle cx="120" cy="70" r="16" fill="#e8c07d"/>
+    <circle cx="45" cy="112" r="16" fill="#e8c07d"/>
+    <circle cx="82.5" cy="112" r="16" fill="#e8c07d"/>
+    <circle cx="120" cy="112" r="16" fill="#e8c07d"/>
+    <text x="82.5" y="175" text-anchor="middle" font-family="Verdana, sans-serif" font-size="18" font-weight="bold" fill="#f4f1ea">Repetition</text>
+  </g>
+
+  <!-- Alignment: bars sharing one left edge -->
+  <g transform="translate(390 20)">
+    <rect width="165" height="200" rx="10" fill="#6b4226"/>
+    <line x1="30" y1="35" x2="30" y2="140" stroke="#f4f1ea" stroke-width="2" stroke-dasharray="4 4"/>
+    <rect x="30" y="45" width="105" height="14" rx="3" fill="#e8c07d"/>
+    <rect x="30" y="72" width="75" height="14" rx="3" fill="#e8c07d"/>
+    <rect x="30" y="99" width="95" height="14" rx="3" fill="#e8c07d"/>
+    <rect x="30" y="126" width="55" height="14" rx="3" fill="#e8c07d"/>
+    <text x="82.5" y="175" text-anchor="middle" font-family="Verdana, sans-serif" font-size="18" font-weight="bold" fill="#f4f1ea">Alignment</text>
+  </g>
+
+  <!-- Proximity: two tight groups with space between -->
+  <g transform="translate(575 20)">
+    <rect width="165" height="200" rx="10" fill="#6b4226"/>
+    <rect x="22" y="50" width="22" height="22" rx="3" fill="#e8c07d"/>
+    <rect x="48" y="50" width="22" height="22" rx="3" fill="#e8c07d"/>
+    <rect x="22" y="76" width="22" height="22" rx="3" fill="#e8c07d"/>
+    <rect x="48" y="76" width="22" height="22" rx="3" fill="#e8c07d"/>
+    <rect x="96" y="50" width="22" height="22" rx="3" fill="#e8c07d"/>
+    <rect x="122" y="50" width="22" height="22" rx="3" fill="#e8c07d"/>
+    <rect x="96" y="76" width="22" height="22" rx="3" fill="#e8c07d"/>
+    <rect x="122" y="76" width="22" height="22" rx="3" fill="#e8c07d"/>
+    <text x="82.5" y="175" text-anchor="middle" font-family="Verdana, sans-serif" font-size="18" font-weight="bold" fill="#f4f1ea">Proximity</text>
+  </g>
+</svg>
