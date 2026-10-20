@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Aaron Reyes's Ambitious Rhino | ITIS3135 | Inventory</title>
+  <title>Aaron Reyes's Ambitious Rhino | ITIS3135 | Rhino Charge Inventory</title>
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles/default.css">
   <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
@@ -12,10 +12,99 @@
   <div data-include="components/header.html"></div>
 
   <main>
-    <h2>Inventory</h2>
-    <p>This page will hold my inventory page, built for the freeCodeCamp Responsive Web Design certification. It will use CSS Grid to display a set of items in an organized layout.</p>
-    <!-- class: marks this placeholder note so it is styled apart from real content until the page is built -->
-    <p class="coming-soon">Coming soon: this page will be built out in Part B.</p>
+    <h2>Rhino Charge Inventory</h2>
+    <p>This is the stock room for Rhino Charge. Instead of tracking books, this inventory tracks every product in the herd: what it powers, what it costs, whether it's on the shelf, and how customers rate it on our three-bar charge meter.</p>
+
+    <figure>
+      <img src="images/rhino_charge_stock_crate.svg" alt="A Rhino Charge shipping crate stamped with the gold horn logo, with boxed power banks stacked on top" width="320" height="200">
+      <figcaption>Fresh crates ship from the watering hole every Monday.</figcaption>
+    </figure>
+
+    <h3>Current Stock</h3>
+    <p>Green rows are in stock, gold rows are running low, and red rows are backordered. The charge meter shows the average customer rating out of three bars.</p>
+
+    <table>
+      <caption>Rhino Charge products, fall 2026</caption>
+      <thead>
+        <tr>
+          <th scope="col">Product</th>
+          <th scope="col">Power</th>
+          <th scope="col">Category</th>
+          <th scope="col">Price</th>
+          <th scope="col">Status</th>
+          <th scope="col">Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- class/span: row classes color each row by stock status (freeCodeCamp attribute-selector pattern); the status span is a badge and the rate span holds three empty spans drawn as charge bars -->
+        <tr class="in-stock">
+          <td>Calf 5K</td>
+          <td>5,000 mAh, 20W</td>
+          <td>Pocket</td>
+          <td>$24.99</td>
+          <td><span class="status">In Stock</span></td>
+          <td><span class="rate three" role="img" aria-label="3 of 3 bars"><span></span><span></span><span></span></span></td>
+        </tr>
+        <tr class="in-stock">
+          <td>Bull 10K</td>
+          <td>10,000 mAh, 15W magnetic</td>
+          <td>Phone</td>
+          <td>$39.99</td>
+          <td><span class="status">In Stock</span></td>
+          <td><span class="rate three" role="img" aria-label="3 of 3 bars"><span></span><span></span><span></span></span></td>
+        </tr>
+        <tr class="low-stock">
+          <td>Black Rhino 20K</td>
+          <td>20,000 mAh, 65W</td>
+          <td>Flagship</td>
+          <td>$69.99</td>
+          <td><span class="status">Low Stock</span></td>
+          <td><span class="rate three" role="img" aria-label="3 of 3 bars"><span></span><span></span><span></span></span></td>
+        </tr>
+        <tr class="backordered">
+          <td>White Rhino 27K</td>
+          <td>26,800 mAh, 140W</td>
+          <td>Laptop</td>
+          <td>$119.99</td>
+          <td><span class="status">Backordered</span></td>
+          <td><span class="rate two" role="img" aria-label="2 of 3 bars"><span></span><span></span><span></span></span></td>
+        </tr>
+        <tr class="in-stock">
+          <td>Horn 65W</td>
+          <td>65W, 3 ports</td>
+          <td>Wall Charger</td>
+          <td>$44.99</td>
+          <td><span class="status">In Stock</span></td>
+          <td><span class="rate two" role="img" aria-label="2 of 3 bars"><span></span><span></span><span></span></span></td>
+        </tr>
+        <tr class="in-stock">
+          <td>Crash Cable</td>
+          <td>6 ft braided USB-C, 100W</td>
+          <td>Cable</td>
+          <td>$14.99</td>
+          <td><span class="status">In Stock</span></td>
+          <td><span class="rate three" role="img" aria-label="3 of 3 bars"><span></span><span></span><span></span></span></td>
+        </tr>
+        <tr class="low-stock">
+          <td>Savanna Solar</td>
+          <td>28W folding panel</td>
+          <td>Outdoor</td>
+          <td>$89.99</td>
+          <td><span class="status">Low Stock</span></td>
+          <td><span class="rate two" role="img" aria-label="2 of 3 bars"><span></span><span></span><span></span></span></td>
+        </tr>
+        <tr class="backordered">
+          <td>Waterhole Dock</td>
+          <td>3-in-1 desk station</td>
+          <td>Desk</td>
+          <td>$59.99</td>
+          <td><span class="status">Backordered</span></td>
+          <td><span class="rate one" role="img" aria-label="1 of 3 bars"><span></span><span></span><span></span></span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Why a "Crash" Cable? A group of rhinos is called a crash, and this cable is built to hold the whole herd together.</p>
   </main>
 
   <div data-include="components/footer.html"></div>

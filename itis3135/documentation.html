@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aaron Reyes's Ambitious Rhino | ITIS3135 | Rhino Charge Documentation</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles/default.css">
+  <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div data-include="components/header.html"></div>
+
+  <!-- id/class: main-doc is the freeCodeCamp id for the documentation; the manual class widens main so the topic list can sit beside the sections -->
+  <main id="main-doc" class="manual">
+    <h2>Rhino Charge Documentation</h2>
+    <p>This is the field manual for the Black Rhino 20K, the flagship Rhino Charge power bank. It covers setup, recharging, the charge indicators, powering your devices, travel rules, and what to do when your rhino won't charge.</p>
+
+    <figure>
+      <img src="images/rhino_charge_port_diagram.svg" alt="Diagram of the Black Rhino 20K with labels for the charge display, PWR button, charge LEDs, two USB-C ports, and one USB-A port" width="560" height="280">
+      <figcaption>Black Rhino 20K at a glance</figcaption>
+    </figure>
+
+    <!-- id/class: navbar and nav-link come from the freeCodeCamp user stories; each link jumps to a section id -->
+    <nav id="navbar" aria-label="Field manual topics">
+      <h3>Field Manual Topics</h3>
+      <ul>
+        <li><a class="nav-link" href="#Getting_Started">Getting Started</a></li>
+        <li><a class="nav-link" href="#Recharging_Your_Rhino">Recharging Your Rhino</a></li>
+        <li><a class="nav-link" href="#Reading_the_Indicators">Reading the Indicators</a></li>
+        <li><a class="nav-link" href="#Powering_Your_Devices">Powering Your Devices</a></li>
+        <li><a class="nav-link" href="#Travel_and_Storage">Travel and Storage</a></li>
+        <li><a class="nav-link" href="#Troubleshooting">Troubleshooting</a></li>
+      </ul>
+    </nav>
+
+    <!-- id/class: main-section marks each freeCodeCamp section; each id matches its heading text -->
+    <section class="main-section" id="Getting_Started">
+      <h3>Getting Started</h3>
+      <p>Thanks for joining the herd. Before your first trip, take a minute to unbox your Black Rhino and give it a full charge.</p>
+      <p>Your box includes:</p>
+      <ul>
+        <li>One Black Rhino 20K power bank</li>
+        <li>One 2 ft Crash Cable (USB-C to USB-C, 100W)</li>
+        <li>One canvas travel pouch</li>
+        <li>This field manual, in quick-start form</li>
+      </ul>
+      <p>Press <code>PWR</code> once to wake the display. It shows the remaining charge as a percentage for 10 seconds, then turns off to save power.</p>
+    </section>
+
+    <section class="main-section" id="Recharging_Your_Rhino">
+      <h3>Recharging Your Rhino</h3>
+      <p>Plug any USB-C charger into <code>USB-C 1</code>, the only port that accepts power in. The Black Rhino supports <code>USB PD 3.0</code> input up to 65W, so faster chargers mean shorter waits.</p>
+      <p>Approximate time from empty to full:</p>
+      <ul>
+        <li>65W charger, such as the Horn 65W: about 1.5 hours</li>
+        <li>30W charger: about 2.5 hours</li>
+        <li>18W phone charger: about 4 hours</li>
+        <li>5W USB port on an old laptop: 12 hours or more</li>
+      </ul>
+      <p>The display counts up while recharging and shows <code>FULL</code> when it reaches 100%.</p>
+    </section>
+
+    <section class="main-section" id="Reading_the_Indicators">
+      <h3>Reading the Indicators</h3>
+      <p>The four charge LEDs each stand for about 25% of the battery. When one LED is left blinking, the Black Rhino is down to its last 10% and should be recharged soon.</p>
+      <p>The display also shows short codes when something needs attention:</p>
+      <ul>
+        <li><code>Lo</code>: low-current mode is on (see Powering Your Devices)</li>
+        <li><code>E1</code>: the battery is too hot or too cold, so charging has paused</li>
+        <li><code>E2</code>: the input charger is sending the wrong voltage</li>
+        <li><code>E3</code>: a port is shorted; unplug everything and check your cables</li>
+      </ul>
+    </section>
+
+    <section class="main-section" id="Powering_Your_Devices">
+      <h3>Powering Your Devices</h3>
+      <p>Plug a device into any port and the Black Rhino starts charging it automatically. All three ports share a 65W total, split like this when more than one device is connected:</p>
+      <pre><code>USB-C 1   up to 65W alone, 45W when shared
+USB-C 2   up to 30W alone, 20W when shared
+USB-A     up to 18W alone, 12W when shared</code></pre>
+      <p>Earbuds and smartwatches draw so little power that a normal power bank may shut off too early. Double-press <code>PWR</code> to switch on low-current mode, which keeps power flowing for two hours.</p>
+      <p>You can also charge the Black Rhino and a device at the same time. This is called pass-through charging, and the device you plug in always gets power first.</p>
+    </section>
+
+    <section class="main-section" id="Travel_and_Storage">
+      <h3>Travel and Storage</h3>
+      <p>The Black Rhino 20K holds 74 watt-hours, which is under the 100 watt-hour limit most airlines allow without approval. Always pack it in your carry-on bag, never in checked luggage.</p>
+      <ul>
+        <li>Use it between 0 and 40 degrees Celsius (32 to 104 degrees Fahrenheit).</li>
+        <li>For long storage, leave it at about 50% charge.</li>
+        <li>Top it up every three months so the battery stays healthy.</li>
+      </ul>
+    </section>
+
+    <section class="main-section" id="Troubleshooting">
+      <h3>Troubleshooting</h3>
+      <p>Most problems are solved in under a minute. Start with the issue that matches what you see.</p>
+      <article>
+        <h4>The Rhino Will Not Wake Up</h4>
+        <p>Plug it into a charger for 15 minutes, then hold <code>PWR</code> for 10 seconds to reset it.</p>
+      </article>
+      <article>
+        <h4>My Device Charges Slowly</h4>
+        <p>Use the included Crash Cable and the <code>USB-C 1</code> port. Older cables often can't carry more than 15W.</p>
+      </article>
+      <article>
+        <h4>The Display Shows E1</h4>
+        <p>Move the Black Rhino out of the sun or a hot car and let it cool down. Charging restarts on its own.</p>
+      </article>
+    </section>
+  </main>
+
+  <div data-include="components/footer.html"></div>
+
+  <script src="scripts/include.js"></script>
+  <script src="https://divonbriesen.github.io/teaching/tools/standards-check.js" defer></script>
+</body>
+</html>

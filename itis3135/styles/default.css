@@ -7,6 +7,7 @@
 /* Darker tone outside the centered page so the edges look intentional */
 html {
   background-color: #e3dccf;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -29,7 +30,9 @@ header {
 /* Second font: headings use Trebuchet MS for contrast with the Verdana body text */
 h1,
 h2,
-h3 {
+h3,
+h4,
+legend {
   font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
@@ -76,6 +79,13 @@ nav a:focus {
   text-decoration: underline;
 }
 
+/* Current page in the main menu (marked by scripts/include.js) */
+nav a[aria-current="page"] {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.3em;
+}
+
 /* Main content */
 main {
   max-width: 800px;
@@ -87,6 +97,11 @@ h2 {
   color: #6b4226;
   border-bottom: 3px solid #e8c07d;
   padding-bottom: 0.4rem;
+}
+
+h3,
+h4 {
+  color: #6b4226;
 }
 
 a {
@@ -124,6 +139,14 @@ blockquote {
   text-align: center;
   font-style: italic;
   color: #6b4226;
+}
+
+code {
+  font-family: Consolas, "Courier New", monospace;
+  background-color: #e3dccf;
+  color: #2e2a24;
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
 }
 
 /* Footer */
@@ -180,6 +203,368 @@ footer nav ul {
   color: #e8c07d;
 }
 
+/* Page menus inside main sit on the light background, so they use the dark brown */
+main nav a,
+main nav a:link,
+main nav a:visited {
+  color: #6b4226;
+}
+
+main nav a:hover,
+main nav a:focus {
+  color: #a15c2c;
+}
+
+/* ===== Rhino Charge pages (freeCodeCamp RWD projects) ===== */
+
+/* Shared: call-to-action links and submit buttons */
+.button,
+button[type="submit"] {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 999px;
+  background-color: #6b4226;
+  color: #f4f1ea;
+  font: bold 1rem "Trebuchet MS", Helvetica, sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:visited {
+  color: #f4f1ea;
+}
+
+.button:hover,
+.button:focus,
+button[type="submit"]:hover,
+button[type="submit"]:focus {
+  background-color: #a15c2c;
+  color: #f4f1ea;
+}
+
+/* Shared: form fields */
+form {
+  background-color: #fbf8f2;
+  border: 2px solid #d9cbb3;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+fieldset {
+  border: 1px solid #d9cbb3;
+  border-radius: 8px;
+  margin: 0 0 1.25rem;
+  padding: 0.75rem 1.25rem 1.25rem;
+}
+
+legend {
+  font-weight: bold;
+  color: #6b4226;
+  padding: 0 0.4rem;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin: 0.9rem 0 0.3rem;
+}
+
+/* Radio and checkbox labels wrap their input, so they read as normal choices */
+label:has(input) {
+  font-weight: normal;
+  margin: 0.5rem 0;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.55rem 0.7rem;
+  font: inherit;
+  color: #2e2a24;
+  background-color: #f4f1ea;
+  border: 2px solid #8a6e4b;
+  border-radius: 6px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  accent-color: #6b4226;
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-right: 0.4rem;
+  vertical-align: middle;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 3px solid #a15c2c;
+  outline-offset: 1px;
+}
+
+/* Darker than the browser default so placeholder text passes contrast */
+::placeholder {
+  color: #7a6a58;
+  opacity: 1;
+}
+
+/* Cards: the freeCodeCamp flexbox playing-card layout */
+#playing-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  width: 13.5rem;
+  min-height: 20rem;
+  padding: 0.6rem;
+  background-color: #fbf8f2;
+  border: 3px solid #6b4226;
+  border-radius: 14px;
+  box-shadow: 0 5px 0 #d9cbb3;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.left,
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #6b4226;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  line-height: 1.1;
+}
+
+.left {
+  align-self: flex-start;
+}
+
+/* The bottom corner is upside down, like a real playing card */
+.right {
+  align-self: flex-end;
+  transform: rotate(180deg);
+}
+
+.left strong,
+.right strong {
+  font-size: 1.2rem;
+}
+
+.middle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex: 1;
+}
+
+.middle img {
+  width: 120px;
+  height: auto;
+}
+
+.middle h4 {
+  margin: 0.4rem 0 0.2rem;
+}
+
+.middle p {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+/* Inventory: the freeCodeCamp attribute-selector table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fbf8f2;
+  font-size: 0.9rem;
+}
+
+caption {
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+th {
+  background-color: #6b4226;
+  color: #f4f1ea;
+  text-align: left;
+  padding: 0.6rem;
+}
+
+td {
+  padding: 0.6rem;
+  border-bottom: 1px solid #d9cbb3;
+}
+
+tr[class="in-stock"] {
+  background-color: #e3ecd9;
+}
+
+tr[class="low-stock"] {
+  background-color: #f6e7c4;
+}
+
+tr[class="backordered"] {
+  background-color: #f3dcd3;
+}
+
+span[class="status"] {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  color: #f4f1ea;
+  font-weight: bold;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+tr[class="in-stock"] span[class="status"] {
+  background-color: #3d6b35;
+}
+
+tr[class="low-stock"] span[class="status"] {
+  background-color: #8a5a12;
+}
+
+tr[class="backordered"] span[class="status"] {
+  background-color: #8a2f1d;
+}
+
+span[class~="rate"] {
+  display: inline-flex;
+  gap: 3px;
+}
+
+span[class~="rate"] > span {
+  width: 12px;
+  height: 20px;
+  border: 2px solid #6b4226;
+  border-radius: 3px;
+  background-color: #f4f1ea;
+}
+
+span[class~="one"] > span:nth-child(1),
+span[class~="two"] > span:nth-child(-n+2),
+span[class~="three"] > span {
+  background-color: #6b4226;
+}
+
+/* Documentation: topic list, code sample, and troubleshooting articles */
+#navbar h3 {
+  margin-top: 0;
+}
+
+#navbar ul {
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.main-section {
+  scroll-margin-top: 1rem;
+}
+
+pre {
+  background-color: #e3dccf;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+pre code {
+  padding: 0;
+}
+
+.main-section article {
+  border-left: 4px solid #e8c07d;
+  padding-left: 1rem;
+}
+
+.main-section article h4 {
+  margin-bottom: 0.25rem;
+}
+
+/* Product landing page */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.hero img {
+  flex: 0 0 auto;
+}
+
+.hero div {
+  flex: 1 1 18rem;
+}
+
+.pitch {
+  font: bold 1.3rem "Trebuchet MS", Helvetica, sans-serif;
+  color: #6b4226;
+}
+
+#nav-bar {
+  margin: 2rem 0 1rem;
+  padding: 0.75rem;
+  background-color: #e3dccf;
+  border-radius: 999px;
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 1rem;
+}
+
+.tiles h3 {
+  grid-column: 1 / -1;
+  margin-bottom: 0;
+}
+
+.tiles article {
+  background-color: #fbf8f2;
+  border: 2px solid #d9cbb3;
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.tiles article h4 {
+  margin-top: 0;
+}
+
+.featured {
+  outline: 3px solid #6b4226;
+}
+
+.price {
+  font: bold 1.6rem "Trebuchet MS", Helvetica, sans-serif;
+  color: #6b4226;
+  margin: 0;
+}
+
+#signup form {
+  max-width: 28rem;
+}
+
+#signup button {
+  margin-top: 1rem;
+}
+
 /* Placeholder note on pages still being built */
 .coming-soon {
   font-style: italic;
@@ -187,6 +572,16 @@ footer nav ul {
 }
 
 /* Media queries */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .card {
+    transition: none;
+  }
+}
+
 @media screen and (max-width: 600px) {
   nav ul {
     flex-direction: column;
@@ -196,23 +591,50 @@ footer nav ul {
   main {
     padding: 1rem;
   }
+
+  /* The inventory table scrolls sideways instead of squeezing its columns */
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  #nav-bar {
+    border-radius: 12px;
+  }
 }
 
 @media screen and (min-width: 900px) {
-  header img {
-  display: block;
-  margin: 0 auto 0.5rem;
-}
-
-/* Display name on the introduction page */
-h6 {
-  font-size: 1.4rem;
-  text-align: center;
-  white-space: nowrap;
-  margin: 1rem 0;
-}
-
-header h1 {
+  header h1 {
     font-size: 1.8rem;
+  }
+
+  /* Documentation: topic list on the left, sections on the right */
+  .manual {
+    max-width: 1100px;
+    display: grid;
+    grid-template-columns: 14rem 1fr;
+    column-gap: 2.5rem;
+  }
+
+  .manual > h2,
+  .manual > p,
+  .manual > figure {
+    grid-column: 1 / -1;
+  }
+
+  #navbar {
+    grid-column: 1;
+    grid-row: 4 / span 6;
+    align-self: start;
+    position: sticky;
+    top: 1rem;
+    padding: 1rem;
+    background-color: #fbf8f2;
+    border: 2px solid #d9cbb3;
+    border-radius: 12px;
+  }
+
+  .main-section {
+    grid-column: 2;
   }
 }

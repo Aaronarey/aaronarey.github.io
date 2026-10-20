@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aaron Reyes's Ambitious Rhino | ITIS3135 | Black Rhino 20K Power Bank</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles/default.css">
+  <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div data-include="components/header.html"></div>
+
+  <main>
+    <h2>Black Rhino 20K Power Bank</h2>
+
+    <!-- id/class: header-img and nav-bar come from the freeCodeCamp user stories; the hero class lays out the opening image and the pitch div side by side -->
+    <section class="hero" aria-label="Product introduction">
+      <img id="header-img" src="images/rhino_charge_black_rhino_20k.svg" alt="Black Rhino 20K, a charcoal power bank with a gold horn and a display reading 100 percent" width="200" height="200">
+      <div>
+        <p class="pitch">Thick-skinned power that keeps charging forward.</p>
+        <p>The Black Rhino 20K is the flagship of the Rhino Charge herd: enough battery to charge a phone four times or give a laptop a full second wind, packed in a shell built to survive your backpack.</p>
+        <!-- class: button styles the call-to-action links on this page -->
+        <a class="button" href="#signup">Get Early Access</a>
+      </div>
+    </section>
+
+    <nav id="nav-bar" aria-label="Product page sections">
+      <ul>
+        <li><a class="nav-link" href="#features">Features</a></li>
+        <li><a class="nav-link" href="#how-it-works">How It Works</a></li>
+        <li><a class="nav-link" href="#pricing">Pricing</a></li>
+        <li><a class="nav-link" href="#signup">Sign Up</a></li>
+      </ul>
+    </nav>
+
+    <!-- id/class: section ids are the targets for the nav-bar links; the tiles class turns a section's articles into a responsive grid -->
+    <section id="features" class="tiles">
+      <h3>Built Thick-Skinned</h3>
+      <article>
+        <h4>65W Laptop Power</h4>
+        <p>USB-C Power Delivery up to 65W charges most laptops, tablets, and phones at full speed.</p>
+      </article>
+      <article>
+        <h4>Full in 90 Minutes</h4>
+        <p>Pair it with the Horn 65W wall charger and go from empty to full during a long lecture.</p>
+      </article>
+      <article>
+        <h4>Armor-Plated Shell</h4>
+        <p>A textured shell with rubber corners shrugs off drops, scratches, and the bottom of your bag.</p>
+      </article>
+    </section>
+
+    <section id="how-it-works">
+      <h3>How It Works</h3>
+      <ol>
+        <li>Charge the Black Rhino overnight with any USB-C charger.</li>
+        <li>Toss it in your bag with the included Crash Cable.</li>
+        <li>Plug in up to three devices whenever your battery starts to fade.</li>
+      </ol>
+      <p>Want the details? The <a href="documentation.html">Rhino Charge field manual</a> covers every port, light, and code.</p>
+    </section>
+
+    <section id="pricing" class="tiles">
+      <h3>Pick Your Rhino</h3>
+      <article>
+        <h4>Calf 5K</h4>
+        <p class="price">$24.99</p>
+        <ul>
+          <li>5,000 mAh</li>
+          <li>One phone charge</li>
+          <li>Fits in a pocket</li>
+        </ul>
+        <a class="button" href="#signup">Pre-Order</a>
+      </article>
+      <!-- class: featured highlights the flagship plan; the price class enlarges each plan's price -->
+      <article class="featured">
+        <h4>Black Rhino 20K</h4>
+        <p class="price">$69.99</p>
+        <ul>
+          <li>20,000 mAh</li>
+          <li>65W for laptops</li>
+          <li>Three ports and a display</li>
+        </ul>
+        <a class="button" href="#signup">Pre-Order</a>
+      </article>
+      <article>
+        <h4>White Rhino 27K</h4>
+        <p class="price">$119.99</p>
+        <ul>
+          <li>26,800 mAh</li>
+          <li>140W for big laptops</li>
+          <li>Airline-friendly 99 Wh</li>
+        </ul>
+        <a class="button" href="#signup">Pre-Order</a>
+      </article>
+    </section>
+
+    <section id="signup">
+      <h3>Join the Charge</h3>
+      <p>The Black Rhino 20K ships this winter. Leave your email and we'll let you know the day it's ready, plus 15% off your first order.</p>
+      <!-- id: form, email, and submit come from the freeCodeCamp user stories -->
+      <form id="form">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+        <button type="submit" id="submit">Get Early Access</button>
+      </form>
+    </section>
+  </main>
+
+  <div data-include="components/footer.html"></div>
+
+  <script src="scripts/include.js"></script>
+  <script src="https://divonbriesen.github.io/teaching/tools/standards-check.js" defer></script>
+</body>
+</html>

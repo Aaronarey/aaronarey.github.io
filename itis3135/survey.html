@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Aaron Reyes's Ambitious Rhino | ITIS3135 | Survey Form</title>
+  <title>Aaron Reyes's Ambitious Rhino | ITIS3135 | Rhino Charge Survey</title>
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles/default.css">
   <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
@@ -12,10 +12,85 @@
   <div data-include="components/header.html"></div>
 
   <main>
-    <h2>Survey Form</h2>
-    <p>This page will hold my survey form, built for the freeCodeCamp Responsive Web Design certification. It will use text inputs, dropdowns, radio buttons, checkboxes, and a textarea to collect feedback.</p>
-    <!-- class: marks this placeholder note so it is styled apart from real content until the page is built -->
-    <p class="coming-soon">Coming soon: this page will be built out in Part B.</p>
+    <!-- id: title and description ids follow the freeCodeCamp Survey Form user stories -->
+    <h2 id="title">Rhino Charge Survey</h2>
+    <p id="description">Rhino Charge is the Ambitious Rhino's portable power company: power banks and chargers that are thick-skinned and always charging forward. Join the herd by telling us a little about yourself and how you keep your devices alive, and we'll use your answers to decide what we build next.</p>
+
+    <figure>
+      <img src="images/rhino_charge_logo.svg" alt="Rhino Charge badge: a gold rhino horn with a lightning bolt on a brown circle" width="200" height="200">
+      <figcaption>Every survey answer helps the herd charge further.</figcaption>
+    </figure>
+
+    <!-- id: survey-form and the input ids below come from the freeCodeCamp user stories and connect each label to its input -->
+    <form id="survey-form">
+      <fieldset>
+        <legend>About You</legend>
+        <label for="name" id="name-label">First Name</label>
+        <input type="text" id="name" name="first-name" placeholder="Aaron" autocomplete="given-name" required>
+
+        <label for="middle-initial">Middle Initial</label>
+        <input type="text" id="middle-initial" name="middle-initial" maxlength="1" placeholder="A" autocomplete="additional-name">
+
+        <label for="nickname">Preferred Name or Nickname</label>
+        <input type="text" id="nickname" name="nickname" placeholder="What the herd should call you">
+
+        <label for="last-name">Last Name</label>
+        <input type="text" id="last-name" name="last-name" placeholder="Reyes" autocomplete="family-name" required>
+
+        <label for="email" id="email-label">Email</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+
+        <label for="mascot">Your Mascot (Adjective and Animal)</label>
+        <input type="text" id="mascot" name="mascot" placeholder="Ambitious Rhino">
+      </fieldset>
+
+      <fieldset>
+        <legend>Your Setup</legend>
+        <label for="number" id="number-label">How Many Devices Do You Charge Each Day?</label>
+        <input type="number" id="number" name="device-count" min="1" max="20" placeholder="3">
+
+        <label for="dropdown">Which Device Dies on You First?</label>
+        <select id="dropdown" name="first-to-die">
+          <option value="">Choose one</option>
+          <option value="phone">Phone</option>
+          <option value="laptop">Laptop</option>
+          <option value="earbuds">Earbuds</option>
+          <option value="watch">Smartwatch</option>
+          <option value="tablet">Tablet</option>
+        </select>
+
+        <label for="computer">Primary Work Computer (Type, OS, and Version)</label>
+        <input type="text" id="computer" name="primary-computer" placeholder="Windows 11 laptop">
+
+        <label for="location">Where Do You Usually Work?</label>
+        <input type="text" id="location" name="primary-location" placeholder="Campus library">
+      </fieldset>
+
+      <fieldset>
+        <legend>How Often Does Your Battery Run Out?</legend>
+        <label><input type="radio" name="battery-runs-out" value="daily" checked> Every day, I live at 1%</label>
+        <label><input type="radio" name="battery-runs-out" value="weekly"> A few times a week</label>
+        <label><input type="radio" name="battery-runs-out" value="rarely"> Rarely, but always at the worst moment</label>
+        <label><input type="radio" name="battery-runs-out" value="never"> Never, I carry a charger everywhere</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>What Should the Next Rhino Have? (Check All That Apply)</legend>
+        <label><input type="checkbox" name="wishlist" value="laptop-power"> Enough power for a laptop</label>
+        <label><input type="checkbox" name="wishlist" value="magnetic"> Magnetic phone mount</label>
+        <label><input type="checkbox" name="wishlist" value="solar"> Built-in solar panel</label>
+        <label><input type="checkbox" name="wishlist" value="rugged"> Drop-proof, waterproof shell</label>
+        <label><input type="checkbox" name="wishlist" value="built-in-cable"> Built-in cable</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Anything Else?</legend>
+        <label for="comments">Tell Us Your Worst Dead-Battery Story</label>
+        <textarea id="comments" name="comments" rows="5" placeholder="My phone died right before..."></textarea>
+      </fieldset>
+
+      <button type="submit" id="submit">Join the Herd</button>
+    </form>
   </main>
 
   <div data-include="components/footer.html"></div>
