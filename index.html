@@ -50,10 +50,6 @@
       color: var(--ink);
     }
 
-    h1, h2, h3 {
-      font-family: Georgia, "Times New Roman", serif;
-      line-height: 1.2;
-    }
 
     a { color: var(--accent); }
     a:hover { text-decoration-thickness: 3px; }
@@ -97,7 +93,9 @@
       font-size: 0.85rem;
       color: #f0b27a;
     }
-    header h1 {
+    .site-name {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.2;
       margin: 0.25rem 0 0.5rem;
       font-size: 2.75rem;
     }
@@ -142,6 +140,8 @@
     }
     section { margin-bottom: 3rem; }
     h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.2;
       color: var(--accent);
       font-size: 1.75rem;
       margin: 0 0 1rem;
@@ -175,7 +175,9 @@
       border-radius: var(--radius);
       padding: 1.25rem 1.4rem;
     }
-    .card h3 {
+    h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.2;
       margin: 0 0 0.5rem;
       font-size: 1.25rem;
     }
@@ -214,7 +216,7 @@
     footer a { color: #f0b27a; }
 
     @media (max-width: 34rem) {
-      header h1 { font-size: 2.1rem; }
+      .site-name { font-size: 2.1rem; }
       .hero { text-align: center; }
       .tagline { margin: 0 auto; }
     }
@@ -228,7 +230,7 @@
     <div class="hero">
       <div class="hero-text">
         <p class="eyebrow">Personal home page</p>
-        <h1>Aaron Reyes</h1>
+        <h1 class="site-name">Aaron Reyes</h1>
         <p class="tagline">The Ambitious Rhino: computer science student, entrepreneur, and future AI salesperson who keeps charging forward.</p>
       </div>
 
@@ -267,7 +269,7 @@
       <h2 id="about-heading">About me</h2>
       <p>Hi, I'm Aaron. I grew up in New York and I'm now a junior at UNC Charlotte, studying computer science with a focus on AI, robotics, and gaming. I like building things, whether that's code, a business, or a stronger version of myself in the gym.</p>
       <p>Why a rhino? They're tough, they're thick-skinned, and once they pick a direction they keep charging forward no matter what's in the way. That's the energy I try to bring to everything.</p>
-      <ul class="facts" aria-label="Quick facts">
+      <ul class="facts">
         <li>B.S. Computer Science</li>
         <li>Minor in Mathematics</li>
         <li>AI, Robotics &amp; Gaming</li>
