@@ -28,12 +28,15 @@ header {
 }
 
 /* Second font: headings use Trebuchet MS for contrast with the Verdana body text */
-h1,
-h2,
-h3,
-h4,
-legend {
+/* Each heading level is styled in exactly one rule */
+h3 {
   font-family: "Trebuchet MS", Helvetica, sans-serif;
+  color: #6b4226;
+}
+
+h4 {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  color: #6b4226;
 }
 
 header img {
@@ -49,7 +52,8 @@ h6 {
   margin: 1rem 0;
 }
 
-header h1 {
+.site-title {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
   margin: 0 0 0.75rem;
   font-size: 1.4rem;
 }
@@ -94,14 +98,10 @@ main {
 }
 
 h2 {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
   color: #6b4226;
   border-bottom: 3px solid #e8c07d;
   padding-bottom: 0.4rem;
-}
-
-h3,
-h4 {
-  color: #6b4226;
 }
 
 a {
@@ -259,6 +259,7 @@ fieldset {
 }
 
 legend {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
   font-weight: bold;
   color: #6b4226;
   padding: 0 0.4rem;
@@ -282,6 +283,7 @@ input[type="number"],
 select,
 textarea {
   width: 100%;
+  box-sizing: border-box;
   padding: 0.55rem 0.7rem;
   font: inherit;
   color: #2e2a24;
@@ -325,6 +327,7 @@ textarea:focus {
   justify-content: space-between;
   width: 13.5rem;
   min-height: 20rem;
+  box-sizing: border-box;
   padding: 0.6rem;
   background-color: #fbf8f2;
   border: 3px solid #6b4226;
@@ -376,7 +379,7 @@ textarea:focus {
   height: auto;
 }
 
-.middle h4 {
+.card-name {
   margin: 0.4rem 0 0.2rem;
 }
 
@@ -452,6 +455,7 @@ span[class~="rate"] {
 span[class~="rate"] > span {
   width: 12px;
   height: 20px;
+  box-sizing: border-box;
   border: 2px solid #6b4226;
   border-radius: 3px;
   background-color: #f4f1ea;
@@ -464,7 +468,7 @@ span[class~="three"] > span {
 }
 
 /* Documentation: topic list, code sample, and troubleshooting articles */
-#navbar h3 {
+.nav-title {
   margin-top: 0;
 }
 
@@ -493,7 +497,7 @@ pre code {
   padding-left: 1rem;
 }
 
-.main-section article h4 {
+.issue-title {
   margin-bottom: 0.25rem;
 }
 
@@ -531,7 +535,7 @@ pre code {
   gap: 1rem;
 }
 
-.tiles h3 {
+.tiles-title {
   grid-column: 1 / -1;
   margin-bottom: 0;
 }
@@ -543,7 +547,7 @@ pre code {
   padding: 1rem;
 }
 
-.tiles article h4 {
+.tile-title {
   margin-top: 0;
 }
 
@@ -604,7 +608,7 @@ pre code {
 }
 
 @media screen and (min-width: 900px) {
-  header h1 {
+  .site-title {
     font-size: 1.8rem;
   }
 
@@ -616,9 +620,7 @@ pre code {
     column-gap: 2.5rem;
   }
 
-  .manual > h2,
-  .manual > p,
-  .manual > figure {
+  .full-row {
     grid-column: 1 / -1;
   }
 
