@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lifting 🏋️ Home</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&amp;family=Source+Sans+3:wght@400;600&amp;display=swap">
+  <style>
+    /* Lifting hobby site - Aaron Reyes
+       Palette (different from the main course site's browns):
+       iron slate #1f262b, steel #2c363d, chalk #ece6dc,
+       plate amber #f2a541, rust #d9643a, gray #9aa5ad.
+       No pure white or black is used. */
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      max-width: 1200px;
+      margin: 0 auto;
+      font-family: "Source Sans 3", Arial, sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      background-color: #1f262b;
+      color: #ece6dc;
+    }
+
+    /* Header and section navigation */
+    header {
+      background-color: #2c363d;
+      border-bottom: 4px solid #f2a541;
+      padding: 1.25rem 1rem 1rem;
+      text-align: center;
+    }
+
+    /* Each heading is defined once; clamp() shrinks it on phones */
+    h1 {
+      margin: 0;
+      font-family: "Oswald", Arial, sans-serif;
+      font-size: clamp(1.9rem, 6vw, 2.4rem);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #f2a541;
+    }
+
+    header p {
+      margin: 0.2rem 0 0.9rem;
+      font-style: italic;
+      color: #9aa5ad;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    header nav a,
+    header nav a:link,
+    header nav a:visited {
+      display: block;
+      padding: 0.35rem 0.8rem;
+      border: 2px solid #f2a541;
+      border-radius: 4px;
+      color: #f2a541;
+      font-family: "Oswald", Arial, sans-serif;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    header nav a:hover,
+    header nav a:focus,
+    header nav a[aria-current="page"] {
+      background-color: #f2a541;
+      color: #1f262b;
+    }
+
+    /* Links: amber everywhere, visited stays the same color */
+    a,
+    a:link,
+    a:visited {
+      color: #f2a541;
+    }
+
+    a:focus-visible {
+      outline: 3px solid #d9643a;
+      outline-offset: 2px;
+    }
+
+    /* Main content */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 2.5rem;
+    }
+
+    h2 {
+      font-family: "Oswald", Arial, sans-serif;
+      font-size: clamp(1.6rem, 5vw, 2rem);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #f2a541;
+      border-bottom: 3px solid #d9643a;
+      padding-bottom: 0.3rem;
+    }
+
+    h3 {
+      font-family: "Oswald", Arial, sans-serif;
+      font-size: 1.25rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #d9643a;
+    }
+
+    /* Figures: image, caption, then the italic source/prompt note */
+    figure {
+      margin: 1.5rem 0;
+      padding: 0.75rem;
+      background-color: #2c363d;
+      border-left: 5px solid #d9643a;
+      border-radius: 4px;
+    }
+
+    figure img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      border-radius: 3px;
+    }
+
+    figcaption {
+      margin-top: 0.6rem;
+      font-weight: 600;
+    }
+
+    figure p {
+      margin: 0.3rem 0 0;
+      font-weight: 400;
+      font-size: 0.9rem;
+      font-style: italic;
+      color: #9aa5ad;
+    }
+
+    /* Tables for the training split and nutrition */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.25rem 0;
+    }
+
+    caption {
+      font-family: "Oswald", Arial, sans-serif;
+      text-align: left;
+      color: #f2a541;
+      padding-bottom: 0.4rem;
+    }
+
+    th,
+    td {
+      padding: 0.5rem 0.65rem;
+      border: 1px solid #45525b;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background-color: #2c363d;
+      color: #f2a541;
+    }
+
+    /* Prompts are shown in a monospace font so they read like typed input */
+    blockquote {
+      font-family: "Courier New", Courier, monospace;
+      margin: 1rem 0;
+      padding: 0.75rem 1rem;
+      background-color: #2c363d;
+      border-left: 5px solid #f2a541;
+    }
+
+    /* Footer: widest to narrowest */
+    footer {
+      background-color: #2c363d;
+      border-top: 4px solid #f2a541;
+      padding: 1.25rem 1rem;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    footer nav ul {
+      gap: 1.25rem;
+    }
+
+    footer p {
+      margin: 0.6rem 0 0;
+    }
+
+    /* Media queries */
+    @media screen and (max-width: 600px) {
+      header nav a,
+      header nav a:link,
+      header nav a:visited {
+        padding: 0.3rem 0.55rem;
+        font-size: 0.9rem;
+      }
+
+      th,
+      td {
+        padding: 0.4rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+  <script src="scripts/sections.js" defer></script>
+  <script src="https://divonbriesen.github.io/teaching/tools/standards-check.js" defer></script>
+  <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <h1>Lifting</h1>
+    <p>&ldquo;Progress over perfection.&rdquo;</p>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#my-story">My Story</a></li>
+        <li><a href="#why-i-lift">Why I Lift</a></li>
+        <li><a href="#the-program">The Program</a></li>
+        <li><a href="#fuel">Fuel</a></li>
+        <li><a href="#the-gym">The Gym</a></li>
+        <li><a href="#goals">Goals</a></li>
+        <li><a href="#ai-prompts">AI Prompts</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Each section is one "page" of this single-page site. The id lets the nav
+         link to it, and scripts/sections.js shows only the selected one. -->
+
+    <!-- WHAT -->
+    <section id="home">
+      <h2>Home</h2>
+      <p>Lifting is strength training with free weights: barbells, dumbbells, and plates. You pick up something heavy, put it down, and come back next time ready to lift a little more. It's a simple idea, but getting good at it takes years.</p>
+      <figure>
+        <img src="images/barbell-loaded.jpg" width="800" height="533" alt="A loaded barbell resting on a dark rubber gym floor">
+        <figcaption>The barbell is where it all starts.
+          <p><em>Photo by Jonathan Borba on <a href="https://www.pexels.com/photo/27810159/">Pexels</a>.</em></p>
+        </figcaption>
+      </figure>
+      <p>The foundation of most programs is the compound lifts. These movements work several muscle groups at once:</p>
+      <ul>
+        <li><strong>Bench press</strong> builds the chest, shoulders, and triceps</li>
+        <li><strong>Squat</strong> builds the quads, glutes, and core</li>
+        <li><strong>Deadlift</strong> builds the back, glutes, and hamstrings</li>
+        <li><strong>Overhead press</strong> builds the shoulders and upper back</li>
+        <li><strong>Rows and pull-ups</strong> build the lats and give the back its width</li>
+      </ul>
+      <p>On this site you'll find how I got into lifting, why I keep doing it, how I train and eat, and what I'm working toward. Use the menu above to move between sections.</p>
+    </section>
+
+    <!-- WHO -->
+    <section id="my-story">
+      <h2>My Story</h2>
+      <p>I'm Aaron Reyes, a Computer Science student at UNC Charlotte, and I started lifting in February 2023. Like most beginners, I didn't really know what I was doing. I copied what other people in the gym did and hoped it worked.</p>
+      <figure>
+        <img src="images/first-day-gym.jpg" width="800" height="533" alt="A lifter clapping chalk onto their hands in a sunlit gym">
+        <figcaption>Every lifter starts as a beginner.
+          <p><em>Photo by Andrea Piacquadio on <a href="https://www.pexels.com/photo/3763696/">Pexels</a>.</em></p>
+        </figcaption>
+      </figure>
+      <p>Over time I learned that the people making real progress weren't doing anything secret. They showed up, followed a plan, tracked their numbers, and ate enough to grow. Once I started treating lifting like a skill to practice instead of a workout to survive, my strength started climbing.</p>
+      <p>Today I train every day of the week and plan my nutrition just as carefully as my workouts. Lifting has gone from something I tried to part of who I am.</p>
+    </section>
+
+    <!-- WHY -->
+    <section id="why-i-lift">
+      <h2>Why I Lift</h2>
+      <p>People start lifting for different reasons. For me it started with wanting to look and feel stronger, but the reasons have grown since then.</p>
+      <figure>
+        <img src="images/focus-before-set.jpg" width="800" height="533" alt="A lifter in wrist wraps gripping a loaded barbell before a deadlift">
+        <figcaption>The few seconds before a heavy set.
+          <p><em>Photo by Victor Freitas on <a href="https://www.pexels.com/photo/949134/">Pexels</a>.</em></p>
+        </figcaption>
+      </figure>
+      <ul>
+        <li><strong>Discipline.</strong> Showing up on days I don't feel like it carries over into school and work.</li>
+        <li><strong>Measurable progress.</strong> The numbers on the bar don't lie. If I put in the work, I can see it.</li>
+        <li><strong>Mental reset.</strong> An hour in the gym clears my head better than anything else.</li>
+        <li><strong>Confidence.</strong> Getting stronger changes how I carry myself everywhere else.</li>
+      </ul>
+      <p>The biggest lesson lifting has taught me is that consistency beats intensity. One great workout means nothing. Hundreds of good ones add up to something real.</p>
+    </section>
+
+    <!-- HOW (training) -->
+    <section id="the-program">
+      <h2>The Program</h2>
+      <p>I follow a push / pull / legs split. Each muscle group gets trained twice a week, and every session is built around one heavy compound lift followed by accessory work.</p>
+      <figure>
+        <img src="images/bench-press.jpg" width="800" height="533" alt="A lifter pressing a barbell on a bench in a dimly lit gym">
+        <figcaption>Bench press: the lift I'm chasing the hardest.
+          <p><em>Photo by Tima Miroshnichenko on <a href="https://www.pexels.com/photo/5327556/">Pexels</a>.</em></p>
+        </figcaption>
+      </figure>
+      <table>
+        <caption>My weekly split</caption>
+        <thead>
+          <tr>
+            <th scope="col">Day</th>
+            <th scope="col">Focus</th>
+            <th scope="col">Main lifts</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Monday</td>
+            <td>Push</td>
+            <td>Bench press, incline dumbbell press, triceps</td>
+          </tr>
+          <tr>
+            <td>Tuesday</td>
+            <td>Pull</td>
+            <td>Pull-ups, barbell rows, lat pulldowns</td>
+          </tr>
+          <tr>
+            <td>Wednesday</td>
+            <td>Legs</td>
+            <td>Squats, Romanian deadlifts, leg press</td>
+          </tr>
+          <tr>
+            <td>Thursday</td>
+            <td>Push</td>
+            <td>Overhead press, dips, chest flyes</td>
+          </tr>
+          <tr>
+            <td>Friday</td>
+            <td>Pull</td>
+            <td>Deadlifts, cable rows, curls</td>
+          </tr>
+          <tr>
+            <td>Saturday</td>
+            <td>Legs</td>
+            <td>Front squats, lunges, calves</td>
+          </tr>
+          <tr>
+            <td>Sunday</td>
+            <td>Light day</td>
+            <td>Arms, core, and mobility</td>
+          </tr>
+        </tbody>
+      </table>
+      <h3>Progressive Overload</h3>
+      <p>The rule behind all of it is progressive overload: do a little more over time. That can mean more weight, more reps, or cleaner reps with the same weight. I log every session so I always know what I need to beat next time.</p>
+    </section>
+
+    <!-- HOW (nutrition) -->
+    <section id="fuel">
+      <h2>Fuel</h2>
+      <p>You can't out-train a bad diet. Right now I'm on a bulk, which means eating more calories than I burn so my body has what it needs to build muscle.</p>
+      <figure>
+        <img src="images/meal-prep.jpg" width="800" height="533" alt="Stacks of meal prep containers filled with rice, protein, and vegetables">
+        <figcaption>Meal prep makes hitting my numbers a lot easier.
+          <p><em>Photo by IARA MELO on <a href="https://www.pexels.com/photo/30635719/">Pexels</a>.</em></p>
+        </figcaption>
+      </figure>
+      <table>
+        <caption>My daily targets</caption>
+        <thead>
+          <tr>
+            <th scope="col">Target</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Why it matters</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calories</td>
+            <td>About 3,700</td>
+            <td>A surplus gives my body the energy to grow.</td>
+          </tr>
+          <tr>
+            <td>Protein</td>
+            <td>190&ndash;200 g</td>
+            <td>Protein is what repairs and builds muscle.</td>
+          </tr>
+          <tr>
+            <td>Carbs</td>
+            <td>Most of the rest</td>
+            <td>Carbs fuel hard training sessions.</td>
+          </tr>
+          <tr>
+            <td>Water</td>
+            <td>All day</td>
+            <td>Even mild dehydration hurts strength.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>I plan my meals down to details like the fat ratio of the ground beef I buy, because small numbers add up fast over a whole day. Eating this much is honestly harder than the training some days.</p>
+    </section>
+
+    <!-- WHERE -->
+    <section id="the-gym">
+      <h2>The Gym</h2>
+      <p>Lifting can happen anywhere there's weight to move, but the gym floor is where I do my serious training. A good gym doesn't need to be fancy. It needs the right equipment and room to work.</p>
+      <figure>
+        <img src="images/squat-rack.jpg" width="800" height="533" alt="A loaded barbell set in a row of orange squat racks">
+        <figcaption>Squat racks: the most valuable real estate in any gym.
+          <p><em>Photo by Jason Morrison on <a href="https://www.pexels.com/photo/19025673/">Pexels</a>.</em></p>
+        </figcaption>
+      </figure>
+      <h3>What I Look For in a Gym</h3>
+      <ul>
+        <li>Multiple squat racks and benches, so I'm not waiting around</li>
+        <li>Dumbbells that go heavy enough to keep progressing</li>
+        <li>Plenty of plates and a deadlift area</li>
+        <li>A cable machine and a pull-up bar for back work</li>
+      </ul>
+      <h3>Gym Etiquette</h3>
+      <ol>
+        <li>Re-rack your weights when you're done.</li>
+        <li>Wipe down benches after you use them.</li>
+        <li>Don't curl in the squat rack when people are waiting.</li>
+        <li>Ask before you jump in on someone's equipment.</li>
+      </ol>
+    </section>
+
+    <!-- WHEN -->
+    <section id="goals">
+      <h2>Goals</h2>
+      <p>Lifting is a long game. Here's where I've been and where I'm headed.</p>
+      <figure>
+        <img src="images/weight-plates.jpg" width="800" height="533" alt="Black rubber weight plates leaning against a wall on a gym floor">
+        <figcaption>Every plate I add is progress toward 315.
+          <p><em>Photo by Brett Jordan on <a href="https://www.pexels.com/photo/4464720/">Pexels</a>.</em></p>
+        </figcaption>
+      </figure>
+      <table>
+        <caption>My lifting timeline</caption>
+        <thead>
+          <tr>
+            <th scope="col">When</th>
+            <th scope="col">Milestone</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>February 2023</td>
+            <td>Started lifting</td>
+          </tr>
+          <tr>
+            <td>Fall 2026</td>
+            <td>Training 7 days a week on a dedicated bulk</td>
+          </tr>
+          <tr>
+            <td>December 2026</td>
+            <td>Reach a body weight of 190 lbs</td>
+          </tr>
+          <tr>
+            <td>Next big goal</td>
+            <td>Bench press 315 lbs (three plates on each side)</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Beyond the numbers, I also want to build wider lats and a stronger back. And as I keep training hard, I'm learning that recovery matters just as much as effort. Muscle grows when you rest, not while you lift.</p>
+    </section>
+
+    <!-- AI PROMPTS -->
+    <section id="ai-prompts">
+      <h2>AI Prompts</h2>
+      <p>I used AI as a helper while building this site. I gave it the real details about my training and nutrition, then reviewed and edited everything it produced so the site stays accurate and personal.</p>
+      <ul>
+        <li><strong>Tool used:</strong> Claude (Anthropic) for content planning, code, design, and validation help.</li>
+        <li><strong>Images:</strong> free-to-use photos from Pexels, credited under each photo. No images were AI-generated.</li>
+      </ul>
+
+      <h3>Content Planning Prompt</h3>
+      <blockquote>
+        <p>Help me plan a single-page hobby website about weightlifting with sections for what lifting is, my story, why I lift, my training program, nutrition, where I train, and my goals. Use my real details: I started lifting in February 2023, I train seven days a week, and I'm working toward a 315 lb bench press.</p>
+      </blockquote>
+
+      <h3>Design Prompt</h3>
+      <blockquote>
+        <p>Suggest a color palette and two fonts for a gym-themed website that feels bold and gritty and looks different from the brown and tan colors on my main course site.</p>
+      </blockquote>
+
+      <h3>Image Prompt</h3>
+      <blockquote>
+        <p>Find free-to-use, photorealistic gym photos that match each section of my site and keep a consistent, darker style across all of them.</p>
+      </blockquote>
+
+      <h3>Validation and Accessibility Prompt</h3>
+      <blockquote>
+        <p>Review this page for valid HTML and CSS, semantic structure, keyboard-friendly navigation, meaningful alt text, and mobile layout, and fix anything that fails my course&rsquo;s validators.</p>
+      </blockquote>
+    </section>
+  </main>
+
+  <footer>
+    <nav aria-label="My links">
+      <ul>
+        <li><a href="https://webpages.charlotte.edu/areyes24/itis3135/">Course Site</a></li>
+        <li><a href="https://webpages.charlotte.edu/areyes24/">Webspace</a></li>
+        <li><a href="https://github.com/Aaronarey">GitHub.com</a></li>
+        <li><a href="https://aaronarey.github.io/">GitHub.io</a></li>
+      </ul>
+    </nav>
+    <p>Designed by <a href="../aaronreyesdesigns.com/">Aaron Reyes Designs</a> &copy;2026</p>
+  </footer>
+</body>
+</html>

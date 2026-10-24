@@ -518,6 +518,7 @@ pre code {
 }
 
 .pitch {
+  margin-top: 0;
   font: bold 1.3rem "Trebuchet MS", Helvetica, sans-serif;
   color: #6b4226;
 }
@@ -555,10 +556,12 @@ pre code {
   outline: 3px solid #6b4226;
 }
 
+/* the price sits inside each plan's h4 so screen readers hear plan and price together */
 .price {
+  display: block;
+  margin-top: 1rem;
   font: bold 1.6rem "Trebuchet MS", Helvetica, sans-serif;
   color: #6b4226;
-  margin: 0;
 }
 
 #signup form {
