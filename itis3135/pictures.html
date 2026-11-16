@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aaron Reyes's Ambitious Rhino | ITIS3135 | Everything Pictures</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles/default.css">
+  <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div data-include="components/header.html"></div>
+
+  <main>
+    <h2>Everything Pictures</h2>
+    <p>This page shows what happens to a photo on the web as it gets converted, resized and stretched. Each section starts with one original image: a rhino photo from Pexels and a photo I took myself of a perfectly round object. Every article below takes that original and changes one thing, such as its file format, its color, how the browser sizes it, or its proportions, so you can compare file sizes and see when an image looks right and when it looks wrong.</p>
+
+    <section>
+      <h3>Demonstrating Image Manipulation with a White Rhino Photo from Pexels.com</h3>
+      <p>I picked this close-up of a white rhino in the South African bush because a rhino is my Ambitious Rhino mascot, and the cracked skin, dry grass and thin branches give it plenty of fine detail to lose when the image gets squeezed or shrunk. It was taken by <a href="https://www.pexels.com/@chane-bruwer-424963865/">Chan&eacute; Bruwer</a>, a photographer whose Pexels portfolio is mostly wildlife from Kruger National Park in South Africa and mountain goats on Mount Evans in Colorado. I downloaded the <a href="https://www.pexels.com/photo/close-up-of-white-rhino-in-south-african-bush-30239041/">original from Pexels</a> as a JPG that is 6000 by 4000 pixels and 3.49 MB.</p>
+      <article>
+        <h4>Image A1: Original Image</h4>
+        <p>Click to open the image in its original (JPG) format, or one of its converted copies. Each one opens in a new tab at full size.</p>
+        <ul class="image-links">
+          <li><a href="images/close-up-of-white-rhino-in-south-african-bush-30239041@chane-bruwer_pexels.jpg" target="_blank" rel="noopener">Original Image as a JPG (3.49 MB)</a></li>
+          <li><a href="images/close-up-of-white-rhino-in-south-african-bush-30239041@chane-bruwer_pexels.gif" target="_blank" rel="noopener">Original Image as a GIF (16.92 MB)</a></li>
+          <li><a href="images/close-up-of-white-rhino-in-south-african-bush-30239041@chane-bruwer_pexels-greyscale.jpg" target="_blank" rel="noopener">Original Image in Greyscale (3.71 MB)</a></li>
+          <li><a href="images/close-up-of-white-rhino-in-south-african-bush-30239041@chane-bruwer_pexels-black-and-white.png" target="_blank" rel="noopener">Original Image in Black and White (2.65 MB)</a></li>
+        </ul>
+        <figure>
+          <img src="images/close-up-of-white-rhino-in-south-african-bush-30239041@chane-bruwer_pexels.jpg" alt="A white rhino with a short horn standing in dry brown grass and bare bushes" width="6000" height="4000" style="width: 100%; max-width: 900px; height: auto;">
+          <figcaption>The full 6000&times;4000 original, scaled down by the browser so it fits the page.</figcaption>
+        </figure>
+      </article>
+      <article>
+        <h4>Image A2: Downsizing Images with CSS</h4>
+        <p>This is the same 6000&times;4000 file, but inline CSS sets only its width to 600 pixels (about 10% of the original) and lets the browser work out the height, so the proportions stay the same. The browser still has to download all 3.49 MB first.</p>
+        <figure>
+          <img src="images/close-up-of-white-rhino-in-south-african-bush-30239041@chane-bruwer_pexels.jpg" alt="A white rhino with a short horn standing in dry brown grass and bare bushes" width="6000" height="4000" style="width: 600px; max-width: 100%; height: auto;">
+          <figcaption>The original shrunk to 600&times;400 with inline CSS. It looks right but is still a 3.49 MB download.</figcaption>
+        </figure>
+      </article>
+      <article>
+        <h4>Image A3: Proper Reduction of Image with Editor</h4>
+        <p>Here I resized the original in an image editor to 600&times;400 and saved it as a new file, so the browser only downloads 80 KB instead of 3.49 MB.</p>
+        <figure>
+          <img src="images/close-up-of-white-rhino-in-south-african-bush-30239041@chane-bruwer_pexels-600x400.jpg" alt="A white rhino with a short horn standing in dry brown grass and bare bushes" width="600" height="400" style="width: 600px; max-width: 100%; height: auto;">
+          <figcaption>Resized in an editor to 600&times;400 (80 KB), with the proportions kept.</figcaption>
+        </figure>
+      </article>
+      <article>
+        <h4>Image A4: Improper Image Proportions with CSS</h4>
+        <p>Starting from the 600&times;400 copy, I kept one dimension and cut the other by 33%, then did it again. The first two are squashed too far one way and the last two are squeezed too far the other way.</p>
+        <div class="image-row">
+        <figure>
+          <img src="images/close-up-of-white-rhino-in-south-african-bush-30239041@chane-bruwer_pexels-600x268.jpg" alt="Distorted copy of the rhino photo, height cut by 33%, so it looks squashed flat" width="600" height="268">
+          <figcaption>600&times;268: height cut by 33%, so it looks squashed flat.</figcaption>
+        </figure>
+        <figure>
+          <img src="images/close-up-of-white-rhino-in-south-african-bush-30239041@chane-bruwer_pexels-600x180.jpg" alt="Distorted copy of the rhino photo, height cut by another 33%, so it's squashed even more" width="600" height="180">
+          <figcaption>600&times;180: height cut by another 33%, so it's squashed even more.</figcaption>
+        </figure>
+        <figure>
+          <img src="images/close-up-of-white-rhino-in-south-african-bush-30239041@chane-bruwer_pexels-402x400.jpg" alt="Distorted copy of the rhino photo, width cut by 33%, so it looks squeezed thin" width="402" height="400">
+          <figcaption>402&times;400: width cut by 33%, so it looks squeezed thin.</figcaption>
+        </figure>
+        <figure>
+          <img src="images/close-up-of-white-rhino-in-south-african-bush-30239041@chane-bruwer_pexels-269x400.jpg" alt="Distorted copy of the rhino photo, width cut by another 33%, so it's squeezed even more" width="269" height="400">
+          <figcaption>269&times;400: width cut by another 33%, so it's squeezed even more.</figcaption>
+        </figure>
+        </div>
+      </article>
+      <article>
+        <h4>Image A5: Improper Enlarging with CSS</h4>
+        <p>Both images below get the same inline CSS width. The left one is the 600&times;400 copy and the right one is a 150&times;100 copy (25% of it), so the browser has to blow the small one back up and it turns blurry.</p>
+        <div class="image-row">
+        <figure>
+          <img src="images/close-up-of-white-rhino-in-south-african-bush-30239041@chane-bruwer_pexels-600x400.jpg" alt="A white rhino with a short horn standing in dry brown grass and bare bushes" width="600" height="400" style="width: 400px; max-width: 100%; height: auto;">
+          <figcaption>The 600&times;400 copy (80 KB), shown with the same CSS width.</figcaption>
+        </figure>
+        <figure>
+          <img src="images/close-up-of-white-rhino-in-south-african-bush-30239041@chane-bruwer_pexels-150x100.jpg" alt="Blurry enlarged copy of the rhino photo" width="150" height="100" style="width: 400px; max-width: 100%; height: auto;">
+          <figcaption>The 150&times;100 copy (7 KB) stretched to the same width.</figcaption>
+        </figure>
+        </div>
+      </article>
+    </section>
+
+    <hr>
+
+    <section>
+      <h3>Demonstrating Image Proportions with My Own Photo of a Round Lid</h3>
+      <p>I took this selfie with my phone, holding a round gray plastic lid up beside my face. A lid is a perfect circle, so it makes any stretching easy to spot, and my face gives a second shape you would notice looking wrong. This copy came off my phone as a JPG that is 720 by 1280 pixels and 116 KB, which is already much smaller than the phone's full-resolution original.</p>
+      <article>
+        <h4>Image B1: Original Image</h4>
+        <p>Click to open the image in its original (JPG) format, or one of its converted copies. Each one opens in a new tab at full size.</p>
+        <ul class="image-links">
+          <li><a href="images/lid-next-to-head@aaronarey.jpg" target="_blank" rel="noopener">Original Image as a JPG (116 KB)</a></li>
+          <li><a href="images/lid-next-to-head@aaronarey.gif" target="_blank" rel="noopener">Original Image as a GIF (347 KB)</a></li>
+          <li><a href="images/lid-next-to-head@aaronarey-greyscale.jpg" target="_blank" rel="noopener">Original Image in Greyscale (86 KB)</a></li>
+          <li><a href="images/lid-next-to-head@aaronarey-black-and-white.png" target="_blank" rel="noopener">Original Image in Black and White (96 KB)</a></li>
+        </ul>
+        <figure>
+          <img src="images/lid-next-to-head@aaronarey.jpg" alt="Aaron holding a round gray plastic lid up next to his face" width="720" height="1280" style="width: 100%; max-width: 450px; height: auto;">
+          <figcaption>The full 720&times;1280 original, scaled down by the browser so it fits the page.</figcaption>
+        </figure>
+      </article>
+      <article>
+        <h4>Image B2: Downsizing Images with CSS</h4>
+        <p>This is the same 720&times;1280 file, but inline CSS sets only its width to 288 pixels (about 40% of the original) and lets the browser work out the height, so the proportions stay the same. The browser still has to download all 116 KB first.</p>
+        <figure>
+          <img src="images/lid-next-to-head@aaronarey.jpg" alt="Aaron holding a round gray plastic lid up next to his face" width="720" height="1280" style="width: 288px; max-width: 100%; height: auto;">
+          <figcaption>The original shrunk to 288&times;512 with inline CSS. It looks right but is still a 116 KB download.</figcaption>
+        </figure>
+      </article>
+      <article>
+        <h4>Image B3: Proper Reduction of Image with Editor</h4>
+        <p>Here I resized the original in an image editor to 338&times;600 and saved it as a new file, so the browser only downloads 23 KB instead of 116 KB.</p>
+        <figure>
+          <img src="images/lid-next-to-head@aaronarey-338x600.jpg" alt="Aaron holding a round gray plastic lid up next to his face" width="338" height="600" style="width: 338px; max-width: 100%; height: auto;">
+          <figcaption>Resized in an editor to 338&times;600 (23 KB), with the proportions kept.</figcaption>
+        </figure>
+      </article>
+      <article>
+        <h4>Image B4: Improper Image Proportions with CSS</h4>
+        <p>Starting from the 338&times;600 copy, I kept one dimension and cut the other by 33%, then did it again. The first two are squashed too far one way and the last two are squeezed too far the other way.</p>
+        <div class="image-row">
+        <figure>
+          <img src="images/lid-next-to-head@aaronarey-338x402.jpg" alt="Distorted copy of the lid photo, height cut by 33%, so it looks squashed flat" width="338" height="402">
+          <figcaption>338&times;402: height cut by 33%, so it looks squashed flat.</figcaption>
+        </figure>
+        <figure>
+          <img src="images/lid-next-to-head@aaronarey-338x269.jpg" alt="Distorted copy of the lid photo, height cut by another 33%, so it's squashed even more" width="338" height="269">
+          <figcaption>338&times;269: height cut by another 33%, so it's squashed even more.</figcaption>
+        </figure>
+        <figure>
+          <img src="images/lid-next-to-head@aaronarey-226x600.jpg" alt="Distorted copy of the lid photo, width cut by 33%, so it looks squeezed thin" width="226" height="600">
+          <figcaption>226&times;600: width cut by 33%, so it looks squeezed thin.</figcaption>
+        </figure>
+        <figure>
+          <img src="images/lid-next-to-head@aaronarey-151x600.jpg" alt="Distorted copy of the lid photo, width cut by another 33%, so it's squeezed even more" width="151" height="600">
+          <figcaption>151&times;600: width cut by another 33%, so it's squeezed even more.</figcaption>
+        </figure>
+        </div>
+      </article>
+      <article>
+        <h4>Image B5: Improper Enlarging with CSS</h4>
+        <p>Both images below get the same inline CSS width. The left one is the 338&times;600 copy and the right one is a 84&times;150 copy (25% of it), so the browser has to blow the small one back up and it turns blurry.</p>
+        <div class="image-row">
+        <figure>
+          <img src="images/lid-next-to-head@aaronarey-338x600.jpg" alt="Aaron holding a round gray plastic lid up next to his face" width="338" height="600" style="width: 269px; max-width: 100%; height: auto;">
+          <figcaption>The 338&times;600 copy (23 KB), shown with the same CSS width.</figcaption>
+        </figure>
+        <figure>
+          <img src="images/lid-next-to-head@aaronarey-84x150.jpg" alt="Blurry enlarged copy of the lid photo" width="84" height="150" style="width: 269px; max-width: 100%; height: auto;">
+          <figcaption>The 84&times;150 copy (3 KB) stretched to the same width.</figcaption>
+        </figure>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <div data-include="components/footer.html"></div>
+
+  <script src="scripts/include.js"></script>
+  <script src="https://divonbriesen.github.io/teaching/tools/standards-check.js" defer></script>
+</body>
+</html>
