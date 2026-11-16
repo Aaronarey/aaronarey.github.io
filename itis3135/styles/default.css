@@ -304,6 +304,9 @@ label:has(input) {
 input[type="text"],
 input[type="email"],
 input[type="number"],
+input[type="url"],
+input[type="date"],
+input[type="file"],
 select,
 textarea {
   width: 100%;
@@ -666,4 +669,42 @@ pre code {
   .main-section {
     grid-column: 2;
   }
+}
+
+/* ===== Introduction Form page ===== */
+
+/* Reset, Clear, Add Course and Delete Course buttons: lighter than Submit so the main action stands out */
+button[type="reset"],
+button[type="button"] {
+  display: inline-block;
+  padding: 0.6rem 1.3rem;
+  border: 2px solid #6b4226;
+  border-radius: 999px;
+  background-color: #f4f1ea;
+  color: #6b4226;
+  font: bold 1rem "Trebuchet MS", Helvetica, sans-serif;
+  cursor: pointer;
+}
+
+button[type="reset"]:hover,
+button[type="reset"]:focus,
+button[type="button"]:hover,
+button[type="button"]:focus {
+  background-color: #6b4226;
+  color: #f4f1ea;
+}
+
+.form-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.course {
+  background-color: #f4f1ea;
+}
+
+.delete-course {
+  margin-top: 1rem;
 }

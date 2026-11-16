@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aaron Reyes's Ambitious Rhino | ITIS3135 | Introduction Form</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles/default.css">
+  <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div data-include="components/header.html"></div>
+
+  <main>
+    <!-- div with data-include: the header and footer divs are placeholders that include.js swaps for the shared components -->
+    <!-- ids: every input has an id so its label's for attribute can point to it, and introduction.js reads the values by id -->
+    <!-- id form-intro, intro-form, courses, result: hooks introduction.js uses to hide the form and show the finished introduction -->
+    <!-- class course and delete-course: mark each repeatable course group and its delete button, since there can be any number of them -->
+    <!-- class form-buttons: a div that lines the Submit, Reset and Clear buttons up in one row -->
+    <!-- div id result: an empty container introduction.js fills with the generated introduction page -->
+    <h2>Introduction Form</h2>
+    <h3 id="form-intro">Please submit the form below.</h3>
+
+    <form id="intro-form">
+      <fieldset>
+        <legend>Name and Mascot</legend>
+        <label for="first-name">First Name</label>
+        <input type="text" id="first-name" name="first-name" value="Aaron" placeholder="Aaron" required>
+        <label for="middle-name">Middle Name or Initial (optional)</label>
+        <input type="text" id="middle-name" name="middle-name" value="" placeholder="A.">
+        <label for="nickname">Nickname or Preferred Name (optional)</label>
+        <input type="text" id="nickname" name="nickname" value="" placeholder="What you like to be called">
+        <label for="last-name">Last Name</label>
+        <input type="text" id="last-name" name="last-name" value="Reyes" placeholder="Reyes" required>
+        <label for="mascot-adjective">Mascot Adjective</label>
+        <input type="text" id="mascot-adjective" name="mascot-adjective" value="Ambitious" placeholder="Ambitious" required>
+        <label for="mascot-animal">Mascot Animal</label>
+        <input type="text" id="mascot-animal" name="mascot-animal" value="Rhino" placeholder="Rhino" required>
+        <label for="divider">Divider</label>
+        <input type="text" id="divider" name="divider" value="~" placeholder="~, |, or another symbol" required>
+      </fieldset>
+
+      <fieldset>
+        <legend>Acknowledgment</legend>
+        <label for="acknowledgment">Acknowledgment Statement</label>
+        <textarea id="acknowledgment" name="acknowledgment" rows="2" placeholder="I understand that this is a public document..." required>I understand that this is a public document, and I won&#x27;t put anything here I wouldn&#x27;t want anyone to see.</textarea>
+        <label for="acknowledgment-date">Acknowledgment Date</label>
+        <input type="date" id="acknowledgment-date" name="acknowledgment-date" value="2026-11-16" placeholder="" required>
+      </fieldset>
+
+      <fieldset>
+        <legend>Picture</legend>
+        <label for="picture">Picture (leave empty to use the default image)</label>
+        <input type="file" id="picture" name="picture" accept="image/*">
+        <label for="picture-alt">Picture Description</label>
+        <input type="text" id="picture-alt" name="picture-alt" value="Aaron Reyes at dinner under string lights" placeholder="Describe the picture for screen readers" required>
+        <label for="picture-caption">Picture Caption</label>
+        <input type="text" id="picture-caption" name="picture-caption" value="Picture of me at dinner!" placeholder="A short caption for the picture" required>
+      </fieldset>
+
+      <fieldset>
+        <legend>About Me</legend>
+        <label for="personal-statement">Personal Statement</label>
+        <textarea id="personal-statement" name="personal-statement" rows="5" placeholder="A few sentences introducing yourself" required>Hi, my name is Aaron Reyes. I&#x27;m a junior at UNC Charlotte majoring in Computer Science with a concentration in AI, Robotics &amp; Gaming, and a minor in Mathematics. Outside of class I run my own supplement brand, and I&#x27;m working toward a career in AI sales. I&#x27;m looking forward to building real web projects this semester.</textarea>
+        <label for="personal-background">Personal Background</label>
+        <textarea id="personal-background" name="personal-background" rows="3" placeholder="Where you are from" required>I&#x27;m originally from New York and moved to Charlotte for school.</textarea>
+        <label for="professional-background">Professional Background</label>
+        <textarea id="professional-background" name="professional-background" rows="3" placeholder="Jobs and work experience" required>I hold an active real estate license and have a background in real estate sales. I also founded and run Radiant Roots, a supplement brand, which I handle end to end: product, content, and sales.</textarea>
+        <label for="academic-background">Academic Background</label>
+        <textarea id="academic-background" name="academic-background" rows="3" placeholder="Major, year, and school" required>Computer Science, B.S. at UNC Charlotte, concentration in AI, Robotics &amp; Gaming, minor in Mathematics. Junior, graduating in 2028.</textarea>
+        <label for="primary-computer">Primary Work Computer</label>
+        <input type="text" id="primary-computer" name="primary-computer" value="A laptop running Windows 11." placeholder="Your main computer and operating system" required>
+        <label for="primary-location">Primary Work Location</label>
+        <input type="text" id="primary-location" name="primary-location" value="My apartment." placeholder="Where you usually work" required>
+        <label for="alternate-computer">Alternate Computer and Location</label>
+        <input type="text" id="alternate-computer" name="alternate-computer" value="A campus computer at Atkins Library." placeholder="Your backup computer and where it is" required>
+      </fieldset>
+
+      <fieldset>
+        <legend>Courses I'm Taking and Why</legend>
+        <div id="courses">
+          <fieldset class="course">
+            <legend>Course</legend>
+            <label for="course-dept-1">Department</label>
+            <input type="text" id="course-dept-1" name="course-dept" value="ITIS" placeholder="ITIS" required>
+            <label for="course-number-1">Number</label>
+            <input type="text" id="course-number-1" name="course-number" value="3135" placeholder="3135" required>
+            <label for="course-name-1">Name</label>
+            <input type="text" id="course-name-1" name="course-name" value="Front-End Web App Development" placeholder="Front-End Web App Development" required>
+            <label for="course-reason-1">Reason for Taking</label>
+            <input type="text" id="course-reason-1" name="course-reason" value="Major requirement, and I want to be able to build and ship a functional website on my own." placeholder="Why you are taking this course" required>
+            <button type="button" class="delete-course">Delete Course</button>
+          </fieldset>
+          <fieldset class="course">
+            <legend>Course</legend>
+            <label for="course-dept-2">Department</label>
+            <input type="text" id="course-dept-2" name="course-dept" value="ITIS" placeholder="ITIS" required>
+            <label for="course-number-2">Number</label>
+            <input type="text" id="course-number-2" name="course-number" value="3200" placeholder="3135" required>
+            <label for="course-name-2">Name</label>
+            <input type="text" id="course-name-2" name="course-name" value="Intro to Information Security &amp; Privacy" placeholder="Front-End Web App Development" required>
+            <label for="course-reason-2">Reason for Taking</label>
+            <input type="text" id="course-reason-2" name="course-reason" value="Core security course for my degree, and a solid foundation for understanding how systems get broken." placeholder="Why you are taking this course" required>
+            <button type="button" class="delete-course">Delete Course</button>
+          </fieldset>
+          <fieldset class="course">
+            <legend>Course</legend>
+            <label for="course-dept-3">Department</label>
+            <input type="text" id="course-dept-3" name="course-dept" value="ITIS" placeholder="ITIS" required>
+            <label for="course-number-3">Number</label>
+            <input type="text" id="course-number-3" name="course-number" value="4214" placeholder="3135" required>
+            <label for="course-name-3">Name</label>
+            <input type="text" id="course-name-3" name="course-name" value="Usable Security and Privacy" placeholder="Front-End Web App Development" required>
+            <label for="course-reason-3">Reason for Taking</label>
+            <input type="text" id="course-reason-3" name="course-reason" value="I&#x27;m interested in the human side of security: why people ignore warnings and make risky choices even when the tech works." placeholder="Why you are taking this course" required>
+            <button type="button" class="delete-course">Delete Course</button>
+          </fieldset>
+          <fieldset class="course">
+            <legend>Course</legend>
+            <label for="course-dept-4">Department</label>
+            <input type="text" id="course-dept-4" name="course-dept" value="ITSC" placeholder="ITIS" required>
+            <label for="course-number-4">Number</label>
+            <input type="text" id="course-number-4" name="course-number" value="2181" placeholder="3135" required>
+            <label for="course-name-4">Name</label>
+            <input type="text" id="course-name-4" name="course-name" value="Intro to Computer Systems" placeholder="Front-End Web App Development" required>
+            <label for="course-reason-4">Reason for Taking</label>
+            <input type="text" id="course-reason-4" name="course-reason" value="Required for my degree; I want to understand what&#x27;s happening underneath the code I write." placeholder="Why you are taking this course" required>
+            <button type="button" class="delete-course">Delete Course</button>
+          </fieldset>
+        </div>
+        <button type="button" id="add-course">Add Course</button>
+      </fieldset>
+
+      <fieldset>
+        <legend>Quote and Extras</legend>
+        <label for="quote">Quote</label>
+        <input type="text" id="quote" name="quote" value="The world is yours." placeholder="A quote you like" required>
+        <label for="quote-author">Quote Author</label>
+        <input type="text" id="quote-author" name="quote-author" value="Scarface" placeholder="Who said it" required>
+        <label for="funny-thing">Funny or Interesting Item to Remember Me by (optional)</label>
+        <input type="text" id="funny-thing" name="funny-thing" value="My dog and I have the same birthday." placeholder="Something funny or interesting about you">
+        <label for="share">Something I Would Like to Share (optional)</label>
+        <input type="text" id="share" name="share" value="" placeholder="Anything else you want to share">
+      </fieldset>
+
+      <fieldset>
+        <legend>Footer Links</legend>
+        <label for="link-name-1">Link 1 Name</label>
+        <input type="text" id="link-name-1" name="link-name" value="CLT Web" placeholder="LinkedIn" required>
+        <label for="link-url-1">Link 1 URL</label>
+        <input type="url" id="link-url-1" name="link-url" value="https://webpages.charlotte.edu/areyes24/" placeholder="https://www.example.com/" required>
+        <label for="link-name-2">Link 2 Name</label>
+        <input type="text" id="link-name-2" name="link-name" value="GitHub.io" placeholder="LinkedIn" required>
+        <label for="link-url-2">Link 2 URL</label>
+        <input type="url" id="link-url-2" name="link-url" value="https://aaronarey.github.io/" placeholder="https://www.example.com/" required>
+        <label for="link-name-3">Link 3 Name</label>
+        <input type="text" id="link-name-3" name="link-name" value="GitHub.io ITIS3135" placeholder="LinkedIn" required>
+        <label for="link-url-3">Link 3 URL</label>
+        <input type="url" id="link-url-3" name="link-url" value="https://aaronarey.github.io/itis3135/" placeholder="https://www.example.com/" required>
+        <label for="link-name-4">Link 4 Name</label>
+        <input type="text" id="link-name-4" name="link-name" value="GitHub" placeholder="LinkedIn" required>
+        <label for="link-url-4">Link 4 URL</label>
+        <input type="url" id="link-url-4" name="link-url" value="https://github.com/Aaronarey" placeholder="https://www.example.com/" required>
+        <label for="link-name-5">Link 5 Name</label>
+        <input type="text" id="link-name-5" name="link-name" value="freeCodeCamp" placeholder="LinkedIn" required>
+        <label for="link-url-5">Link 5 URL</label>
+        <input type="url" id="link-url-5" name="link-url" value="https://www.freecodecamp.org/aaronarey" placeholder="https://www.example.com/" required>
+        <label for="link-name-6">Link 6 Name</label>
+        <input type="text" id="link-name-6" name="link-name" value="Codecademy" placeholder="LinkedIn" required>
+        <label for="link-url-6">Link 6 URL</label>
+        <input type="url" id="link-url-6" name="link-url" value="https://www.codecademy.com/profiles/Aaronarey" placeholder="https://www.example.com/" required>
+        <label for="link-name-7">Link 7 Name</label>
+        <input type="text" id="link-name-7" name="link-name" value="LinkedIn" placeholder="LinkedIn" required>
+        <label for="link-url-7">Link 7 URL</label>
+        <input type="url" id="link-url-7" name="link-url" value="https://www.linkedin.com/in/aaron-reyes-715935328/" placeholder="https://www.example.com/" required>
+      </fieldset>
+
+      <div class="form-buttons">
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+        <button type="button" id="clear-form">Clear</button>
+      </div>
+    </form>
+
+    <div id="result" hidden></div>
+  </main>
+
+  <div data-include="components/footer.html"></div>
+
+  <script src="scripts/include.js"></script>
+  <script src="scripts/introduction.js"></script>
+  <script src="https://divonbriesen.github.io/teaching/tools/standards-check.js" defer></script>
+</body>
+</html>
