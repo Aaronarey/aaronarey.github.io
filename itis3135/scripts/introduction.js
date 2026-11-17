@@ -239,8 +239,28 @@
     return file ? "images/" + file.name : DEFAULT_IMAGE;
   }
 
-  /* Collects everything in the form into one object, using the keys from the course data model */
-  function gatherData() {
+  /* Reads the picture (the uploaded file, or the default image) as a base64 data URL,
+     so the JSON and XML carry the image itself instead of just a path to it */
+  function readImageData() {
+    var file = document.getElementById("picture").files[0];
+    var getBlob = file ? Promise.resolve(file) : fetch(DEFAULT_IMAGE).then(function (response) {
+      return response.blob();
+    });
+    return getBlob.then(function (blob) {
+      return new Promise(function (resolve, reject) {
+        var reader = new FileReader();
+        reader.onload = function () {
+          resolve(reader.result);
+        };
+        reader.onerror = reject;
+        reader.readAsDataURL(blob);
+      });
+    });
+  }
+
+  /* Collects everything in the form into one object, using the keys from the course data model.
+     img is the picture, either as a base64 data URL or as a file path. */
+  function gatherData(img) {
     var courses = [];
     coursesBox.querySelectorAll(".course").forEach(function (course) {
       var get = function (name) {
@@ -269,7 +289,7 @@
       prettyNameDivider: valueOf("divider"),
       adjectives: valueOf("mascot-adjective"),
       animal: valueOf("mascot-animal"),
-      img: imagePath(),
+      img: img,
       pictureAlt: valueOf("picture-alt"),
       caption: valueOf("picture-caption"),
       personalInfo: {
@@ -322,8 +342,8 @@
   }
 
   /* Nicely formatted JSON version of the form data */
-  function makeJsonCode() {
-    return JSON.stringify(gatherData(), null, 2);
+  function makeJsonCode(img) {
+    return JSON.stringify(gatherData(img), null, 2);
   }
 
   /* Makes text safe to put inside an XML tag */
@@ -355,8 +375,8 @@
   }
 
   /* XML version of the same data */
-  function makeXmlCode() {
-    return "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" + toXml("introduction", gatherData(), "");
+  function makeXmlCode(img) {
+    return "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" + toXml("introduction", gatherData(img), "");
   }
 
   /* Takes the generated code area off the page */
@@ -386,12 +406,27 @@
     section.scrollIntoView({ behavior: "smooth" });
   }
 
-  /* Each Generate button checks the form first, then shows its kind of code */
-  function generate(kind, makeCode) {
+  /* Generate HTML checks the form first, then shows the raw HTML */
+  function generateHtml() {
+    if (validateForm()) {
+      showOutput("HTML", makeHtmlCode());
+    }
+  }
+
+  /* Generate JSON and Generate XML check the form, read the picture, then show the code.
+     If the picture cannot be read, the image path is used instead. */
+  function generateData(kind, makeCode) {
     return function () {
-      if (validateForm()) {
-        showOutput(kind, makeCode());
+      if (!validateForm()) {
+        return;
       }
+      readImageData()
+        .then(function (img) {
+          showOutput(kind, makeCode(img));
+        })
+        .catch(function () {
+          showOutput(kind, makeCode(imagePath()));
+        });
     };
   }
 
@@ -407,7 +442,7 @@
   document.getElementById("clear-form").addEventListener("click", clearForm);
   document.getElementById("add-course").addEventListener("click", addCourse);
   coursesBox.addEventListener("click", deleteCourse);
-  document.getElementById("generate-html").addEventListener("click", generate("HTML", makeHtmlCode));
-  document.getElementById("generate-json").addEventListener("click", generate("JSON", makeJsonCode));
-  document.getElementById("generate-xml").addEventListener("click", generate("XML", makeXmlCode));
+  document.getElementById("generate-html").addEventListener("click", generateHtml);
+  document.getElementById("generate-json").addEventListener("click", generateData("JSON", makeJsonCode));
+  document.getElementById("generate-xml").addEventListener("click", generateData("XML", makeXmlCode));
 })();
