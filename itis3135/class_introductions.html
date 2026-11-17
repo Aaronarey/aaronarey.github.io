@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aaron Reyes's Ambitious Rhino | ITIS3135 | Class Introductions</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles/default.css">
+  <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div data-include="components/header.html"></div>
+
+  <main>
+    <!-- div with data-include: the header and footer divs are placeholders that include.js swaps for the shared components -->
+    <h2>Meet the Herd: Class Introductions</h2>
+    <p>Every classmate in ITIS3135 sent in an introduction this semester. This page pulls them live from the class server, so new and updated introductions show up automatically. Search for someone by name or mascot, or let the spotlight pick a random classmate.</p>
+
+    <!-- class intro-tools: a flex row holding the search box and the spotlight button -->
+    <!-- id spotlight: empty until the button is clicked, then introductions.js fills it with one random classmate -->
+    <!-- id intro-grid, class herd-cards: the card layout that introductions.js fills with one card per classmate from the API -->
+    <section class="intro-tools" aria-label="Search and spotlight">
+      <div>
+        <label for="intro-search">Search by name or mascot</label>
+        <input type="text" id="intro-search" placeholder="Try &quot;Rhino&quot; or &quot;Aaron&quot;" disabled>
+      </div>
+      <button type="button" id="spotlight-button" class="button" disabled>Spotlight a random classmate</button>
+    </section>
+
+    <div id="spotlight" class="spotlight" aria-live="polite" hidden></div>
+
+    <p id="intro-status" class="intro-status" aria-live="polite">Loading the herd&hellip;</p>
+
+    <section id="intro-grid" class="herd-cards" aria-label="Classmate introduction cards"></section>
+  </main>
+
+  <div data-include="components/footer.html"></div>
+
+  <script src="scripts/include.js"></script>
+  <script src="scripts/introductions.js"></script>
+  <script src="https://divonbriesen.github.io/teaching/tools/standards-check.js" defer></script>
+</body>
+</html>

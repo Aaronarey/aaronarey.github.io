@@ -605,13 +605,144 @@ pre code {
   color: #6b4226;
 }
 
+/* Class introductions page (M14): cards built from the intro form API */
+.intro-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.intro-tools div {
+  flex: 1 1 16rem;
+}
+
+.intro-status {
+  font-style: italic;
+  color: #6b4226;
+}
+
+.herd-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
+.intro-card {
+  flex: 0 1 14rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+  background-color: #fbf8f2;
+  border: 2px solid #d9cbb3;
+  border-radius: 12px;
+  box-shadow: 0 5px 0 #d9cbb3;
+  transition: transform 0.2s ease;
+}
+
+.intro-card:hover {
+  transform: translateY(-4px);
+}
+
+.intro-card img,
+.spotlight img {
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border: 4px solid #6b4226;
+  border-radius: 8px;
+}
+
+.intro-card-me {
+  outline: 3px solid #6b4226;
+}
+
+.me-badge {
+  margin: 0 0 0.5rem;
+  padding: 0.15rem 0.7rem;
+  border-radius: 999px;
+  background-color: #6b4226;
+  color: #f4f1ea;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.intro-name,
+.spotlight-name {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  color: #6b4226;
+  margin: 0.6rem 0 0.3rem;
+}
+
+.mascot-chip {
+  margin: 0 0 0.5rem;
+  padding: 0.1rem 0.7rem;
+  border-radius: 999px;
+  background-color: #e8c07d;
+  color: #2e2a24;
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+.intro-quote {
+  margin: 0.5rem 0 0;
+  font-size: 0.9rem;
+}
+
+.quote-author {
+  margin: 0.2rem 0 0;
+  font-size: 0.85rem;
+  color: #6b4226;
+}
+
+.fun-fact {
+  font-size: 0.85rem;
+  margin: 0.6rem 0 0;
+}
+
+.intro-link {
+  margin-top: auto;
+  padding-top: 0.6rem;
+  font-weight: bold;
+}
+
+.spotlight {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+  padding: 1.25rem;
+  background-color: #fbf8f2;
+  border: 3px solid #e8c07d;
+  border-radius: 12px;
+}
+
+.spotlight[hidden] {
+  display: none;
+}
+
+.spotlight img {
+  max-width: 200px;
+}
+
+.spotlight div {
+  flex: 1 1 16rem;
+}
+
 /* Media queries */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
 
-  .card {
+  .card,
+  .intro-card {
     transition: none;
   }
 }
