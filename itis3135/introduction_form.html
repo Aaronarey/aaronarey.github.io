@@ -16,7 +16,8 @@
     <!-- ids: every input has an id so its label's for attribute can point to it, and introduction.js reads the values by id -->
     <!-- id form-intro, intro-form, courses, result: hooks introduction.js uses to hide the form and show the finished introduction -->
     <!-- class course and delete-course: mark each repeatable course group and its delete button, since there can be any number of them -->
-    <!-- class form-buttons: a div that lines the Submit, Reset and Clear buttons up in one row -->
+    <!-- class form-buttons: a div that lines the Submit, Reset, Clear and Generate buttons up in one row -->
+    <!-- ids generate-html, generate-json, generate-xml: hooks for the buttons that print the raw code in a text area under the form -->
     <!-- div id result: an empty container introduction.js fills with the generated introduction page -->
     <h2>Introduction Form</h2>
     <h3 id="form-intro">Please Submit the Form Below</h3>
@@ -179,6 +180,9 @@
         <button type="submit">Submit</button>
         <button type="reset">Reset</button>
         <button type="button" id="clear-form">Clear</button>
+        <button type="button" id="generate-html">Generate HTML</button>
+        <button type="button" id="generate-json">Generate JSON</button>
+        <button type="button" id="generate-xml">Generate XML</button>
       </div>
     </form>
 

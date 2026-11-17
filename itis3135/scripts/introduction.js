@@ -3,6 +3,8 @@
   It checks the required fields, adds and deletes course boxes,
   clears and resets the form, and on Submit swaps the form for a
   finished introduction page built from whatever was typed in.
+  The Generate buttons print the raw HTML, JSON or XML for the same
+  data in a text area under the form.
 */
 (function () {
   "use strict";
@@ -114,6 +116,7 @@
     coursesBox.innerHTML = startingCourses;
     courseCount = coursesBox.querySelectorAll(".course").length;
     restoreFooterLinks();
+    removeOutput();
     result.innerHTML = "";
     result.hidden = true;
     formElement.hidden = false;
@@ -141,8 +144,9 @@
     });
   }
 
-  /* Gathers the form data and builds the introduction page in place of the form */
-  function showIntroduction() {
+  /* Gathers the form data and builds the introduction elements (heading, picture, bullets, quote).
+     imageSrc is what goes in the img src, so the page and the raw code can use different paths. */
+  function buildIntroduction(imageSrc) {
     var nameParts = [valueOf("first-name")];
     if (valueOf("middle-name")) {
       nameParts.push(valueOf("middle-name"));
@@ -157,8 +161,7 @@
     /* Picture: the uploaded file if there is one, otherwise the default image */
     var figure = make("figure");
     var img = make("img");
-    var file = document.getElementById("picture").files[0];
-    img.src = file ? URL.createObjectURL(file) : DEFAULT_IMAGE;
+    img.setAttribute("src", imageSrc);
     img.alt = valueOf("picture-alt");
     img.width = 400;
     figure.appendChild(img);
@@ -197,6 +200,14 @@
     quote.appendChild(make("p", "\"" + valueOf("quote") + "\""));
     quote.appendChild(make("p", "~ " + valueOf("quote-author")));
 
+    return [heading, figure, statement, list, quote];
+  }
+
+  /* Swaps the form for the finished introduction page, with a reset link at the bottom */
+  function showIntroduction() {
+    var file = document.getElementById("picture").files[0];
+    var parts = buildIntroduction(file ? URL.createObjectURL(file) : DEFAULT_IMAGE);
+
     var resetParagraph = make("p");
     var resetLink = make("a", "Reset and fill out the form again");
     resetLink.href = "#";
@@ -208,15 +219,180 @@
     resetParagraph.appendChild(resetLink);
 
     result.innerHTML = "";
-    [heading, figure, statement, list, quote, resetParagraph].forEach(function (el) {
+    parts.concat([resetParagraph]).forEach(function (el) {
       result.appendChild(el);
     });
 
+    removeOutput();
     updateFooterLinks();
     formElement.hidden = true;
     formIntro.hidden = true;
     result.hidden = false;
     window.scrollTo(0, 0);
+  }
+
+  /* ===== M13: Generate HTML / JSON / XML ===== */
+
+  /* Path used for the picture in the raw code: the uploaded file's name, or the default image */
+  function imagePath() {
+    var file = document.getElementById("picture").files[0];
+    return file ? "images/" + file.name : DEFAULT_IMAGE;
+  }
+
+  /* Collects everything in the form into one object, using the keys from the course data model */
+  function gatherData() {
+    var courses = [];
+    coursesBox.querySelectorAll(".course").forEach(function (course) {
+      var get = function (name) {
+        return course.querySelector("[name='course-" + name + "']").value.trim();
+      };
+      courses.push({
+        department: get("dept"),
+        courseNumber: get("number"),
+        courseTitle: get("name"),
+        reasonForTaking: get("reason")
+      });
+    });
+    var footerLinks = [];
+    var names = formElement.querySelectorAll("[name='link-name']");
+    var urls = formElement.querySelectorAll("[name='link-url']");
+    names.forEach(function (nameField, i) {
+      footerLinks.push({ label: nameField.value.trim(), url: urls[i].value.trim() });
+    });
+    return {
+      firstName: valueOf("first-name"),
+      middleName: valueOf("middle-name"),
+      nickname: valueOf("nickname"),
+      lastName: valueOf("last-name"),
+      acknowledgment: valueOf("acknowledgment"),
+      acknowledgmentDate: valueOf("acknowledgment-date"),
+      prettyNameDivider: valueOf("divider"),
+      adjectives: valueOf("mascot-adjective"),
+      animal: valueOf("mascot-animal"),
+      img: imagePath(),
+      pictureAlt: valueOf("picture-alt"),
+      caption: valueOf("picture-caption"),
+      personalInfo: {
+        statement: valueOf("personal-statement"),
+        personalBackground: valueOf("personal-background"),
+        professionalBackground: valueOf("professional-background"),
+        academicBackground: valueOf("academic-background"),
+        primaryWorkComputer: valueOf("primary-computer"),
+        primaryWorkLocation: valueOf("primary-location"),
+        alternateComputerLocation: valueOf("alternate-computer")
+      },
+      courses: courses,
+      quote: valueOf("quote"),
+      quoteAuthor: valueOf("quote-author"),
+      funnyItem: valueOf("funny-thing"),
+      somethingToShare: valueOf("share"),
+      footerLinks: footerLinks
+    };
+  }
+
+  /* Tags whose children each go on their own indented line in the generated HTML */
+  var BLOCK_TAGS = ["FIGURE", "UL", "OL", "BLOCKQUOTE"];
+
+  /* Turns an element into nicely indented HTML text */
+  function formatElement(el, indent) {
+    var holdsList = el.tagName === "LI" && el.querySelector("ol, ul");
+    if (BLOCK_TAGS.indexOf(el.tagName) === -1 && !holdsList) {
+      return indent + el.outerHTML;
+    }
+    var open = el.cloneNode(false).outerHTML.replace(/<\/[a-z0-9]+>$/, "");
+    var lines = [indent + open];
+    el.childNodes.forEach(function (child) {
+      if (child.nodeType === 1) {
+        lines.push(formatElement(child, indent + "  "));
+      } else if (child.textContent.trim()) {
+        lines.push(indent + "  " + child.textContent.trim());
+      }
+    });
+    lines.push(indent + "</" + el.tagName.toLowerCase() + ">");
+    return lines.join("\n");
+  }
+
+  /* Raw HTML for the introduction page the form would make */
+  function makeHtmlCode() {
+    var lines = ["<h2>Introduction</h2>"];
+    buildIntroduction(imagePath()).forEach(function (el) {
+      lines.push(formatElement(el, ""));
+    });
+    return lines.join("\n");
+  }
+
+  /* Nicely formatted JSON version of the form data */
+  function makeJsonCode() {
+    return JSON.stringify(gatherData(), null, 2);
+  }
+
+  /* Makes text safe to put inside an XML tag */
+  function escapeXml(text) {
+    return String(text)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&apos;");
+  }
+
+  /* Writes one value as XML: arrays repeat a tag, objects nest, everything else is text */
+  function toXml(name, value, indent) {
+    if (Array.isArray(value)) {
+      var itemName = name === "courses" ? "course" : "link";
+      var items = value.map(function (item) {
+        return toXml(itemName, item, indent + "  ");
+      });
+      return indent + "<" + name + ">\n" + items.join("\n") + "\n" + indent + "</" + name + ">";
+    }
+    if (typeof value === "object") {
+      var children = Object.keys(value).map(function (key) {
+        return toXml(key, value[key], indent + "  ");
+      });
+      return indent + "<" + name + ">\n" + children.join("\n") + "\n" + indent + "</" + name + ">";
+    }
+    return indent + "<" + name + ">" + escapeXml(value) + "</" + name + ">";
+  }
+
+  /* XML version of the same data */
+  function makeXmlCode() {
+    return "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" + toXml("introduction", gatherData(), "");
+  }
+
+  /* Takes the generated code area off the page */
+  function removeOutput() {
+    var old = document.getElementById("generated-output");
+    if (old) {
+      old.remove();
+    }
+  }
+
+  /* Adds a heading and a text area holding the raw code to the bottom of the page */
+  function showOutput(kind, code) {
+    removeOutput();
+    var section = make("section");
+    section.id = "generated-output";
+    section.appendChild(make("h3", "Generated " + kind));
+    var label = make("label", "Raw " + kind + " code made from the form");
+    label.htmlFor = "generated-code";
+    var area = make("textarea");
+    area.id = "generated-code";
+    area.readOnly = true;
+    area.rows = Math.min(code.split("\n").length + 1, 30);
+    area.value = code;
+    section.appendChild(label);
+    section.appendChild(area);
+    formElement.insertAdjacentElement("afterend", section);
+    section.scrollIntoView({ behavior: "smooth" });
+  }
+
+  /* Each Generate button checks the form first, then shows its kind of code */
+  function generate(kind, makeCode) {
+    return function () {
+      if (validateForm()) {
+        showOutput(kind, makeCode());
+      }
+    };
   }
 
   /* Prevents the page refresh, then only builds the introduction if the form is complete */
@@ -231,4 +407,7 @@
   document.getElementById("clear-form").addEventListener("click", clearForm);
   document.getElementById("add-course").addEventListener("click", addCourse);
   coursesBox.addEventListener("click", deleteCourse);
+  document.getElementById("generate-html").addEventListener("click", generate("HTML", makeHtmlCode));
+  document.getElementById("generate-json").addEventListener("click", generate("JSON", makeJsonCode));
+  document.getElementById("generate-xml").addEventListener("click", generate("XML", makeXmlCode));
 })();

@@ -708,3 +708,16 @@ button[type="button"]:focus {
 .delete-course {
   margin-top: 1rem;
 }
+
+/* Generated HTML, JSON and XML code area */
+#generated-output {
+  margin-top: 1.5rem;
+}
+
+#generated-code {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.9rem;
+  white-space: pre;
+  overflow-x: auto;
+}
+
