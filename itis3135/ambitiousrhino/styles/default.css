@@ -24,11 +24,12 @@ body {
 }
 
 /* Header: logo, business name, slogan, and the menu */
+/* Grid puts the logo beside the name and slogan, with the menu underneath */
 header {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: auto 1fr;
   align-items: center;
-  gap: 0.5rem 1.25rem;
+  gap: 0.25rem 1.25rem;
   padding: 1.25rem 1.5rem;
   background-color: #13294b;
   color: #f3f6f0;
@@ -36,13 +37,15 @@ header {
 }
 
 header img {
-  flex: 0 0 auto;
+  grid-row: 1 / 3;
   width: 84px;
   height: auto;
 }
 
 h1 {
+  align-self: end;
   margin: 0;
+  line-height: 1.15;
   font-family: "Exo 2", "Trebuchet MS", sans-serif;
   font-weight: 800;
   font-size: 2.2rem;
@@ -53,12 +56,14 @@ h1 {
 
 /* The slogan sits under the h1 */
 header p {
+  align-self: start;
   margin: 0;
   font-size: 1.05rem;
 }
 
 header nav {
-  flex-basis: 100%;
+  grid-column: 1 / -1;
+  margin-top: 0.5rem;
 }
 
 nav ul {
@@ -148,6 +153,7 @@ figcaption {
 article {
   padding: 1rem 1.25rem;
   margin-bottom: 1rem;
+  /* white on purpose: product cards pop off the mist background like price tags */
   background-color: #ffffff;
   border-left: 6px solid #b8e835;
   border-radius: 10px;
@@ -174,6 +180,7 @@ strong {
 table {
   width: 100%;
   border-collapse: collapse;
+  /* white on purpose: the hours table reads like a printed sign on the mist background */
   background-color: #ffffff;
 }
 
@@ -227,10 +234,6 @@ footer a:focus {
 
 /* Media queries */
 @media screen and (max-width: 600px) {
-  h1 {
-    font-size: 1.6rem;
-  }
-
   header img {
     width: 64px;
   }

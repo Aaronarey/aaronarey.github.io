@@ -12,21 +12,8 @@
   <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <header>
-    <img src="images/rhino-charge-logo.svg" alt="Rhino Charge logo: a lime lightning-bolt rhino horn in a navy circle" width="200" height="200">
-    <hgroup>
-      <h1>Rhino Charge</h1>
-      <p><em>Thick-skinned and always charging forward.</em></p>
-    </hgroup>
-    <nav aria-label="Main menu">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html" aria-current="page">About</a></li>
-        <li><a href="products.html">The Herd</a></li>
-        <li><a href="visit.html">Visit Us</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- div with data-include: placeholders that scripts/include.js swaps for the shared header and footer in components/ -->
+  <div data-include="components/header.html"></div>
 
   <main>
     <h2>About</h2>
@@ -47,15 +34,9 @@
     </ul>
   </main>
 
-  <footer>
-    <p>Rhino Charge &copy;2026 &middot; An Ambitious Rhino company</p>
-    <p>Designed by <a href="../aaronreyesdesigns.com/">Aaron Reyes Designs</a></p>
-    <p>
-      <a href="https://validator.w3.org/check?uri=referer">Validate HTML</a> |
-      <a href="https://jigsaw.w3.org/css-validator/check/referer">Validate CSS</a>
-    </p>
-  </footer>
+  <div data-include="components/footer.html"></div>
 
+  <script src="scripts/include.js"></script>
   <script src="https://divonbriesen.github.io/teaching/tools/standards-check.js" defer></script>
 </body>
 </html>
