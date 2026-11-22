@@ -74,6 +74,13 @@
     caption.innerHTML = "<strong>" + slide.name + "</strong>" + slide.pitch;
   }
 
+  function stop() {
+    window.clearInterval(timer);
+    timer = null;
+    pauseButton.textContent = "Play";
+    caption.setAttribute("aria-live", "polite");
+  }
+
   function play() {
     stop();
     timer = window.setInterval(function () {
@@ -82,13 +89,6 @@
     pauseButton.textContent = "Pause";
     // While playing, announcing every slide would be noisy for screen readers
     caption.setAttribute("aria-live", "off");
-  }
-
-  function stop() {
-    window.clearInterval(timer);
-    timer = null;
-    pauseButton.textContent = "Play";
-    caption.setAttribute("aria-live", "polite");
   }
 
   // One click listener on the section handles all three buttons
