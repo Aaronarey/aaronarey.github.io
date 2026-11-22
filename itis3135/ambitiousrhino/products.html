@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rhino Charge | The Herd</title>
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,40 +19,56 @@
     <h2>The Herd</h2>
     <p>The Rhino Charge herd is six products, each named for a member of the rhino family. Smaller rhinos fit in a pocket, and bigger rhinos power a laptop. Every one ships with our braided Crash Cable and a two-year warranty.</p>
 
-    <p>Not sure which rhino you need? Most students carry a Calf or a Bull every day and keep a Black Rhino in their bag for long days. If you edit video or game on a laptop, go straight to the White Rhino.</p>
+    <p>Not sure which rhino you need? Most students carry a Calf or a Bull every day and keep a Black Rhino in their bag for long days. If you edit video or game on a laptop, go straight to the White Rhino. Use the filter below to narrow the herd down, or try the <a href="calculator.html">Charge Calculator</a> to see exactly how far each rhino gets you.</p>
 
-    <article>
-      <h3>Calf 5K</h3>
-      <img src="images/calf-5k-power-bank.svg" alt="Calf 5K, a small navy power bank with four charge lights" width="200" height="200">
+    <!-- id: scripts/herd_filter.js listens to this form to show or hide products -->
+    <form id="herd-filter">
+      <fieldset>
+        <legend>Show me rhinos for</legend>
+        <label><input type="radio" name="use" value="all" checked> Everything</label>
+        <label><input type="radio" name="use" value="phone"> Phones</label>
+        <label><input type="radio" name="use" value="laptop"> Laptops</label>
+        <label><input type="radio" name="use" value="outdoor"> Off the grid</label>
+      </fieldset>
+      <!-- id: the script writes "Showing X of 6 rhinos" here so screen readers hear the result -->
+      <p id="filter-status" aria-live="polite">Showing all 6 rhinos.</p>
+    </form>
+
+    <h3>Meet the Herd</h3>
+
+    <!-- data-use on each article lists what the product is good for; herd_filter.js matches the chosen filter against it -->
+    <article data-use="phone">
+      <h4>Calf 5K</h4>
+      <img src="images/calf-5k-power-bank.svg" alt="Calf 5K, a small lime power bank with four charge lights" width="200" height="200">
       <p>Pocket power for one full phone charge. At 5,000 mAh it's the lightest rhino in the herd. <strong>$24.99</strong></p>
     </article>
 
-    <article>
-      <h3>Bull 10K</h3>
-      <img src="images/bull-10k-magnetic-power-bank.svg" alt="Bull 10K, a navy power bank with a lime magnetic charging ring" width="200" height="200">
+    <article data-use="phone">
+      <h4>Bull 10K</h4>
+      <img src="images/bull-10k-magnetic-power-bank.svg" alt="Bull 10K, a blue power bank with a lime magnetic charging ring" width="200" height="200">
       <p>Snaps onto the back of your phone and charges wirelessly, so you can keep scrolling while it works. <strong>$44.99</strong></p>
     </article>
 
-    <article>
-      <h3>Black Rhino 20K</h3>
+    <article data-use="phone laptop outdoor">
+      <h4>Black Rhino 20K</h4>
       <img src="images/black-rhino-20k-power-bank.svg" alt="Black Rhino 20K power bank with a lime lightning horn and a display reading 100 percent" width="200" height="200">
       <p>The flagship. Its 20,000 mAh charges a phone four times, and 65W USB-C gives a laptop a full second wind. <strong>$69.99</strong></p>
     </article>
 
-    <article>
-      <h3>White Rhino 27K</h3>
+    <article data-use="laptop">
+      <h4>White Rhino 27K</h4>
       <img src="images/white-rhino-27k-laptop-power-bank.svg" alt="White Rhino 27K, a wide power bank with a laptop icon and a 140W display" width="200" height="200">
       <p>Our biggest rhino. 140W runs a laptop all day, and at 99 Wh it's still allowed on a plane. <strong>$119.99</strong></p>
     </article>
 
-    <article>
-      <h3>Horn 65W</h3>
+    <article data-use="phone laptop">
+      <h4>Horn 65W</h4>
       <img src="images/horn-65w-wall-charger.svg" alt="Horn 65W, a navy wall charger cube with two prongs and three ports" width="200" height="200">
       <p>One wall charger with three ports for your phone, tablet, and laptop. It refills a Black Rhino in about 90 minutes. <strong>$39.99</strong></p>
     </article>
 
-    <article>
-      <h3>Savanna Solar 28W</h3>
+    <article data-use="phone outdoor">
+      <h4>Savanna Solar 28W</h4>
       <img src="images/savanna-solar-28w-panel.svg" alt="Savanna Solar, a three-panel folding solar charger under a lime sun" width="200" height="200">
       <p>A folding three-panel solar charger for camping trips, tailgates, and anywhere without an outlet. <strong>$59.99</strong></p>
     </article>
@@ -61,6 +77,7 @@
   <div data-include="components/footer.html"></div>
 
   <script src="scripts/include.js"></script>
+  <script src="scripts/herd_filter.js"></script>
   <script src="https://divonbriesen.github.io/teaching/tools/standards-check.js" defer></script>
 </body>
 </html>

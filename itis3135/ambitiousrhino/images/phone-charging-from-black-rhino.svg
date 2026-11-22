@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="200" viewBox="0 0 320 200">
+  <!-- A Black Rhino 20K charging a phone over a USB-C cable -->
+  <ellipse cx="160" cy="182" rx="140" ry="9" fill="#d4dde6"/>
+  <!-- power bank -->
+  <rect x="24" y="44" width="92" height="132" rx="16" fill="#13294b" stroke="#0d1d36" stroke-width="4"/>
+  <path d="M58 118 Q62 80 96 66 Q82 92 88 118 Z" fill="#b8e835"/>
+  <rect x="40" y="134" width="60" height="22" rx="5" fill="#0d1d36"/>
+  <text x="70" y="150" text-anchor="middle" font-family="Trebuchet MS, Helvetica, sans-serif" font-size="14" font-weight="bold" fill="#b8e835">20K</text>
+  <!-- cable -->
+  <path d="M116 150 C170 150 160 70 206 70" fill="none" stroke="#2f6fb5" stroke-width="6" stroke-linecap="round"/>
+  <!-- phone -->
+  <rect x="206" y="24" width="86" height="152" rx="16" fill="#1b2330"/>
+  <rect x="214" y="38" width="70" height="124" rx="8" fill="#f3f6f0"/>
+  <rect x="230" y="56" width="38" height="88" rx="5" fill="none" stroke="#13294b" stroke-width="4"/>
+  <rect x="242" y="49" width="14" height="8" rx="2" fill="#13294b"/>
+  <rect x="236" y="122" width="26" height="16" rx="2" fill="#b8e835"/>
+  <rect x="236" y="102" width="26" height="16" rx="2" fill="#b8e835"/>
+  <rect x="236" y="82" width="26" height="16" rx="2" fill="#b8e835"/>
+  <path d="M252 62 L242 80 L250 80 L246 96 L258 76 L250 76 Z" fill="#2f6fb5"/>
+</svg>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rhino Charge | Charge Calculator</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@700;800&amp;family=Nunito+Sans:wght@400;700&amp;display=swap">
+  <link rel="stylesheet" href="styles/default.css">
+  <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- div with data-include: placeholders that scripts/include.js swaps for the shared header and footer in components/ -->
+  <div data-include="components/header.html"></div>
+
+  <main>
+    <h2>Charge Calculator</h2>
+    <p>The number on a power bank's box only tells you half the story. A 10,000 mAh battery sounds huge until you find out it gives a laptop only about half a charge. The Charge Calculator does the math for you: pick the device you carry and a rhino from the herd, and it tells you how many full charges you'll actually get.</p>
+
+    <figure>
+      <img src="images/phone-charging-from-black-rhino.svg" alt="A Black Rhino power bank connected by a cable to a phone whose battery is filling up with lime bars" width="320" height="200">
+      <figcaption>Honest numbers, before you buy.</figcaption>
+    </figure>
+
+    <p>If a rhino can't push enough power for your device, the calculator says so instead of giving you a number that won't hold up. It also points you to the smallest rhino that gives that device a full charge, so you don't carry more weight than you need.</p>
+
+    <!-- id: scripts/charge_calculator.js reads the two choices from this form and writes the answer into its output -->
+    <form id="charge-calculator">
+      <!-- ids device and rhino: connect each label to its dropdown, and the script reads the choices through them -->
+      <p>
+        <label for="device">Your device</label>
+        <select id="device" name="device">
+          <option value="phone">Phone</option>
+          <option value="big-phone">Large phone (Pro Max, Ultra, Plus)</option>
+          <option value="tablet">Tablet</option>
+          <option value="laptop">13-inch laptop</option>
+          <option value="gaming-laptop">Gaming or 16-inch laptop</option>
+        </select>
+      </p>
+      <p>
+        <label for="rhino">Your rhino</label>
+        <select id="rhino" name="rhino">
+          <option value="calf">Calf 5K</option>
+          <option value="bull">Bull 10K</option>
+          <option value="black" selected>Black Rhino 20K</option>
+          <option value="white">White Rhino 27K</option>
+        </select>
+      </p>
+      <p><button type="submit">Calculate</button></p>
+      <output for="device rhino" name="result" aria-live="polite">Pick a device and a rhino to see how many charges you get.</output>
+    </form>
+
+    <h3>How We Do the Math</h3>
+    <p>We turn each rhino's capacity into watt-hours (mAh &times; 3.7 volts), then count only 70% of it, because some energy is always lost as heat while charging. That usable energy is divided by the size of your device's battery. The Horn 65W and Savanna Solar aren't batteries, so they aren't in the list.</p>
+  </main>
+
+  <div data-include="components/footer.html"></div>
+
+  <script src="scripts/include.js"></script>
+  <script src="scripts/charge_calculator.js"></script>
+  <script src="https://divonbriesen.github.io/teaching/tools/standards-check.js" defer></script>
+</body>
+</html>
