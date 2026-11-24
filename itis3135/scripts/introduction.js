@@ -42,6 +42,25 @@
     return li;
   }
 
+  /* Builds one course list item. This course (ITIS 3135) links to the contract page,
+     the same way it does on the introduction page. */
+  function makeCourseBullet(dept, number, name, reason) {
+    var label = dept + " " + number + " - " + name;
+    var li = make("li");
+    var strong = make("strong");
+    if (dept.toUpperCase() === "ITIS" && number === "3135") {
+      var link = make("a", label);
+      link.setAttribute("href", "contract.html");
+      strong.appendChild(link);
+      strong.appendChild(document.createTextNode(":"));
+    } else {
+      strong.textContent = label + ":";
+    }
+    li.appendChild(strong);
+    li.appendChild(document.createTextNode(" " + reason));
+    return li;
+  }
+
   /* Stops the form from submitting when a required field is empty */
   function validateForm() {
     var required = formElement.querySelectorAll("[required]");
@@ -184,7 +203,7 @@
       var get = function (name) {
         return course.querySelector("[name='course-" + name + "']").value.trim();
       };
-      courseList.appendChild(makeBullet(get("dept") + " " + get("number") + " - " + get("name"), get("reason")));
+      courseList.appendChild(makeCourseBullet(get("dept"), get("number"), get("name"), get("reason")));
     });
     coursesItem.appendChild(courseList);
     list.appendChild(coursesItem);
